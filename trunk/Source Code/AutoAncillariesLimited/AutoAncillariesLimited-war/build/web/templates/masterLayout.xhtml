@@ -55,74 +55,7 @@
 
                             <a href="#">#{msg['menu.cate']}</a>
 
-                            <div>
-                                <h:form>
-                                    <c:forEach var="item" items="${categoryManagedBean.listCate}">
-                                        <h:commandLink action="/ShowProduct" value="#{item.categoryName}" actionListener="#{productManagedBean.showProduct}">
-                                            <f:param value="#{item.categoryID}"  name="cateID"/>
-                                        </h:commandLink>
-                                    </c:forEach>
-                                </h:form>
-                            </div>
-
-
-                            <a href="#">QuickMenu</a>
-
-                            <div>
-                                <a href="qm_overview.html">Overview</a>
-                                <a href="specs.html">Specifications</a>
-                                <a href="specs.html">Browser Support</a>
-                                <a href="qm_overview.html">Sample Menus</a>
-                                <a href="download.html" style="border-bottom-width:0px;">Download</a>
-                            </div>
-
-                            <a href="#">Infinite Menus</a>
-
-                            <div>
-                                <a href="im_overview.html">Overview</a>
-                                <a href="specs.html">Specifications</a>
-                                <a href="specs.html">Browser Support</a>
-                                <a href="im_overview.html">Screen Shots</a>
-                                <a href="download.html" style="border-bottom-width:0px;">Download</a>
-                            </div>
-
-                            <a style="border-right-width:1px;" href="buy_now.html">Buy Now!</a>
-
-
-                            <a  id="mitem2" href="./../faces/Shoppingcart.xhtml"></a>
-
-                            <c:if test="${shoppingCartManagedBean.checkexistCart()==true}">
-                                <div>
-                                    <h:dataTable value="#{shoppingCartManagedBean.shoppingCartItems}" var="item">
-                                        <h:column>
-                                            <f:facet name="header">
-                                                <h:outputText value="ProductName"/>
-                                            </f:facet>
-                                            <h:outputText value="#{item.productName}"/>
-                                        </h:column>
-                                        <h:column>
-                                            <f:facet name="header">
-                                                <h:outputText value="UnitPrice"/>
-                                            </f:facet>
-                                            <h:outputText value="#{item.unitPrice}">
-                                            </h:outputText>
-                                        </h:column>
-                                        <h:column>
-                                            <f:facet name="header">
-                                                <h:outputText value="Quantity" />
-                                            </f:facet>
-                                            <p:inputText disabled="true" value="#{item.amount}" style="width:50px; height: 15px;" maxlength="10"/>
-                                        </h:column>
-
-                                    </h:dataTable>
-                                    <h:form>
-                                        <b><h:commandLink style="text-align: right" action="/Shoppingcart" value="ViewCart"></h:commandLink></b>
-                                    </h:form>
-                                </div>
-                            </c:if>
-                            <span class="qmclear">&nbsp;</span>
-                        </div>
-
+                          
                         <!--%%%%%%%%%%%% QuickMenu Create Menu (menu id, is vertical, show timer (ms), hide timer (ms), on click) %%%%%%%%%%%*-->
                         <script type="text/JavaScript">qm_create(0,false,0,50,false)</script>
 
@@ -137,6 +70,7 @@
 
                     </div>
                     <div class="clr"></div>
+                </div>
                 </div>
             </ui:insert>
 
@@ -177,9 +111,9 @@
             <ui:insert name="bottom">
 
                 <div class="footer_resize">
-                    <p class="leftt">© Copyright YourSiteName. All Rights Reserved<br />
+                    <p class="leftt">© Copyright Group5 C0910GS4. All Rights Reserved<br />
                         <a href="#">Home</a> | <a href="#">Contact</a> | <a href="#">RSS </a></p>
-                    <p class="rightt">(DT) <a href="http://www.dreamtemplate.com/"><strong>Website Templates</strong></a></p>
+                    <p class="rightt">(DT) <a href="http://muakiuc.com"><strong>AAL</strong></a></p>
                     <div class="clr"></div>
                 </div>
 
