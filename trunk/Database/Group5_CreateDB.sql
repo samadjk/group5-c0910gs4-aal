@@ -85,6 +85,45 @@ CREATE TABLE OrderDetail
 )
 GO
 
+CREATE TABLE [dbo].[BrandVehicle](
+	[BrandID] [nvarchar](20) NOT NULL,
+	[BrandVehiclename] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK_Company] PRIMARY KEY CLUSTERED 
+(
+	[BrandID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+
+CREATE TABLE [dbo].[Factory](
+	[FactoryID] [nvarchar](20) NOT NULL,
+	[CompanyID] [nvarchar](20) NOT NULL,
+	[FactoryName] [nvarchar](50) NOT NULL,
+	[Description] [nvarchar](500) NOT NULL,
+ CONSTRAINT [PK_Factory] PRIMARY KEY CLUSTERED 
+(
+	[FactoryID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+--CREATE TABLE BrandVehicle(
+--	BrandID nvarchar(20) NOT NULL,
+--	BrandVehiclename nvarchar(50) NOT NULL
+--)
+--GO
+
+--CREATE TABLE Factory(
+--	FactoryID nvarchar(20) NOT NULL,
+--	CompanyID nvarchar(20) NOT NULL,
+--	FactoryName nvarchar(50) NOT NULL,
+--	Description nvarchar(500) NOT NULL
+--)
+--GO
+
+
 --Insert values (All table except Customer n Order)
 INSERT INTO Account
 VALUES('admin','123')
@@ -108,7 +147,7 @@ VALUES('Aptech','hanoi','09123456789')
 GO
 
 INSERT INTO Company
-VALUES('Sky','haiphong','09987654321')
+VALUES('Sky','halong','0933323899')
 GO
 
 INSERT INTO Company
