@@ -1,0 +1,156 @@
+
+/*!!!!!!!!!!! QuickMenu Core CSS [Do Not Modify!] !!!!!!!!!!!!!*/
+.qmclear {font-size:1px;height:0px;width:0px;clear:left;line-height:0px;display:block;}
+.qmmc {position:relative;}
+.qmmc a {float:left;display:block;white-space:nowrap;}
+.qmmc div a {float:none;}
+.qmmc div {visibility:hidden;position:absolute;}
+
+
+/*!!!!!!!!!!! QuickMenu Styles [Please Modify!] !!!!!!!!!!!*/
+
+
+/* Remove the comments bleow for vertical mains and change the false value to
+   true in the qm_create function after the menus structure. */
+/*.qmmc a {float:none}*/
+
+
+/*"""""""" (MAIN) Container """"""""*/
+#qm0
+{
+    background-color:#ffffff;
+    
+    border-width:0px 0px 0px 0px;
+    border-style:solid;
+    border-color:#018697;
+    background-image:url(../images/header_bg.gif) ;
+
+}
+
+
+
+
+/*"""""""" (MAIN) Items """"""""*/
+#qm0 a
+{
+    color:#ffffff;
+    background-color:transparent;
+    font-family:Arial;
+    font-size:.8em;
+    text-decoration:none;
+    padding:5px 20px 5px 8px;
+    border-style:solid;
+    border-color:#000000;
+    border-width:0px 0px 0px 1px;
+
+}
+
+
+/*"""""""" (MAIN) Hover State """"""""*/
+#qm0 a:hover
+{
+    /*border-color:#333333;*/
+
+    color:#000000;
+    background-color:#EFF4FA;
+    text-decoration:underline;
+}
+
+
+/*"""""""" (MAIN) Active State """"""""*/
+body #qm0 .qmactive, body #qm0 .qmactive:hover
+{
+    color:#000000;
+    background-color:#EFF4FA;
+    text-decoration:underline;
+    background-image:url(../images/template1_black_arrow.gif);
+}
+
+
+/*"""""""" (MAIN) Parent Items """"""""*/
+#qm0 .qmparent
+{
+    background-image:url(../images/template1_white_arrow.gif);
+    background-repeat:no-repeat;
+    background-position:92%;
+    cursor:default;
+}
+
+
+
+
+/*"""""""" [SUB] Containers """"""""*/
+#qm0 div
+{
+
+    background-color:#D6DCE2;
+    padding:5px 5px 5px 5px;
+    border-style:solid;
+    border-width:1px 1px 1px 1px;
+    margin:0px;
+    border-color:#333333;
+
+}
+
+#qm0 div td
+{
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    max-width: 200px;
+}
+
+
+/*"""""""" [SUB] Items """"""""*/
+#qm0 div a
+{
+    font-size:.7em;
+    color:#333333;
+    border-width:0px 1px 0px 1px;
+    border-color:#D6DCE2;
+    border-style:solid;
+    padding:3px 30px 3px 5px;
+
+}
+
+/*"""""""" [SUB] Hover State """"""""*/
+#qm0 div a:hover
+{
+
+    border-color:#666666;
+    background-color:#EFF4FA;
+    color:#000000;
+    text-decoration:none;
+}
+
+#qm0 div div
+{
+    margin:0px 0px 0px 3px;
+}
+
+/*""""""""[SUB] Active State """"""""*/
+body #qm0 div .qmactive, body #qm0 div .qmactive:hover
+{
+
+    border-color:#666666;
+    background-color:#EFF4FA;
+    color:#000000;
+    text-decoration:underline;
+    background-image:url(../images/template1_black_arrow_right.gif);
+
+}
+
+
+/*"""""""" [SUB] Parent Items """"""""*/
+#qm0 div .qmparent
+{
+
+    background-image:url(../images/template1_black_arrow_right.gif);
+
+}
+
+#qm0 #mitem2 {background-image:url(../images/shopping_cart_im.gif);width:15px;height:15px; background-position: center}
+#qm0 #mitem2.qmactive {background-image:url(../images/shopping_cart_im.gif);width:15px;height:15px; background-position: center}
+
+
+
