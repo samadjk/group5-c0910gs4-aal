@@ -1,0 +1,190 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core"
+      >
+
+    <h:head>
+        <title>Auto Ancillaries Limited</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="./../resources/css/style.css" rel="stylesheet" type="text/css" />
+        <link href="./../resources/css/css1.css" rel="stylesheet" type="text/css" />
+        <link href="./../resources/css/css2.css" rel="stylesheet" type="text/css" />
+        <script type="text/JavaScript" src="./../resources/js/qm.js"></script>
+        <script type="text/javascript" src="./../resources/js/jquery.v1.4.2.js"></script>
+        <script type="text/javascript" src="./../resources/js/jquery.color.js"></script>
+        <!--  ACTIVATE CUFON TEXT REPLACEMENT IF ENABLED IN THEME OPTIONS  -->
+        <script type="text/javascript" src="./../resources/js/cufon-yui.js"></script>
+        <script type="text/javascript" src="./../resources/js/liberation_sans.js"></script>
+        <script type="text/javascript" src="./../resources/js/js1.js"></script>
+    </h:head>
+
+    <h:body>
+        <div class="main">
+            <ui:insert name="top">
+                <div class="blok_header">
+                    <div class="header">
+                        <div class="top_link">
+                            <h:form>
+                                <h:commandLink style="color:#000000" value="English" action="#{languageManagedBean.changeLocale}">
+                                    <f:param name="localeCode" value="en"></f:param>
+                                </h:commandLink>
+                                <label style="color:#000000">|</label>
+                                <h:commandLink style="color:#000000" value="Vietnamese" action="#{languageManagedBean.changeLocale}">
+                                    <f:param name="localeCode" value="vi"></f:param>
+                                </h:commandLink>
+                            </h:form>
+                        </div>
+
+                        <div class="top_link" >
+                            <h:form>
+                                <h:commandLink style="color:#000000" action="/LoginOrRegister" value="Login or Register"/>
+                            </h:form>
+                        </div>
+
+                        <div class="logo"><a href="index.html"><img src="../resources/images/logo.gif" width="165" height="110" border="0" alt="logo" /></a></div>
+                        <div class="clr"></div>
+                        <div id="qm0" class="qmmc">
+                            <h:form>
+                                <h:commandLink action="/index" value="#{msg['menu.home']}"/>
+                            </h:form>
+
+                            <a href="#">#{msg['menu.cate']}</a>
+
+                            <div>
+                                <h:form>
+                                    <c:forEach var="item" items="${categoryManagedBean.listCate}">
+                                        <h:commandLink action="/ShowProduct" value="#{item.categoryName}" actionListener="#{productManagedBean.showProduct}">
+                                            <f:param value="#{item.categoryID}"  name="cateID"/>
+                                        </h:commandLink>
+                                    </c:forEach>
+                                </h:form>
+                            </div>
+
+
+                            <a href="#">QuickMenu</a>
+
+                            <div>
+                                <a href="qm_overview.html">Overview</a>
+                                <a href="specs.html">Specifications</a>
+                                <a href="specs.html">Browser Support</a>
+                                <a href="qm_overview.html">Sample Menus</a>
+                                <a href="download.html" style="border-bottom-width:0px;">Download</a>
+                            </div>
+
+                            <a href="#">Infinite Menus</a>
+
+                            <div>
+                                <a href="im_overview.html">Overview</a>
+                                <a href="specs.html">Specifications</a>
+                                <a href="specs.html">Browser Support</a>
+                                <a href="im_overview.html">Screen Shots</a>
+                                <a href="download.html" style="border-bottom-width:0px;">Download</a>
+                            </div>
+
+                            <a style="border-right-width:1px;" href="buy_now.html">Buy Now!</a>
+
+
+                            <a  id="mitem2" href="./../faces/Shoppingcart.xhtml"></a>
+
+                            <c:if test="${shoppingCartManagedBean.checkexistCart()==true}">
+                                <div>
+                                    <h:dataTable value="#{shoppingCartManagedBean.shoppingCartItems}" var="item">
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="ProductName"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.productName}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="UnitPrice"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.unitPrice}">
+                                            </h:outputText>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Quantity" />
+                                            </f:facet>
+                                            <p:inputText disabled="true" value="#{item.amount}" style="width:50px; height: 15px;" maxlength="10"/>
+                                        </h:column>
+
+                                    </h:dataTable>
+                                    <h:form>
+                                        <b><h:commandLink style="text-align: right" action="/Shoppingcart" value="ViewCart"></h:commandLink></b>
+                                    </h:form>
+                                </div>
+                            </c:if>
+                            <span class="qmclear">&nbsp;</span>
+                        </div>
+
+                        <!--%%%%%%%%%%%% QuickMenu Create Menu (menu id, is vertical, show timer (ms), hide timer (ms), on click) %%%%%%%%%%%*-->
+                        <script type="text/JavaScript">qm_create(0,false,0,50,false)</script>
+
+
+                        <div class="clr"></div>
+                    </div>
+                    <div class="clr"></div>
+                </div>
+                <div class="clr"></div>
+                <div class="header_text_bg2">
+                    <div class="header_text2">
+
+                    </div>
+                    <div class="clr"></div>
+                </div>
+            </ui:insert>
+
+
+            <div>
+
+                <div>
+
+                    <div class="body_resize">
+                        <ui:insert name="content">
+
+                            <div class="body">
+                                <div class="FBG">
+                                    <div class="menu2">
+                                        <ul>
+                                            <li><a href="#" class="active"><span>All</span></a></li>
+                                            <li><a href="#"><span>Graphic Design</span></a></li>
+                                            <li><a href="#"><span>Templates</span></a></li>
+                                            <li><a href="#"><span>Art Work</span></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="clr"></div>
+                                </div>
+                                <div class="clr"></div>
+                                <img src="../resources/images/fbg_bg_bottom.gif" alt="fbg_bg_bottom" width="960" height="28" style="margin:0 auto; padding:0;" />
+
+                                <div class="clr"></div>
+                            </div>
+                            <div class="clr"></div>
+
+                        </ui:insert>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <ui:insert name="bottom">
+
+                <div class="footer_resize">
+                    <p class="leftt">© Copyright YourSiteName. All Rights Reserved<br />
+                        <a href="#">Home</a> | <a href="#">Contact</a> | <a href="#">RSS </a></p>
+                    <p class="rightt">(DT) <a href="http://www.dreamtemplate.com/"><strong>Website Templates</strong></a></p>
+                    <div class="clr"></div>
+                </div>
+
+            </ui:insert>
+        </div>
+    </h:body>
+
+</html>
