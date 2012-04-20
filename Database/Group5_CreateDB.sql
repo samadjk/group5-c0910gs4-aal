@@ -1,6 +1,3 @@
---DB delete
-DROP DATABASE AutoAncillariesLtd
-GO
 
 --DB creation
 CREATE DATABASE AutoAncillariesLtd
