@@ -1,9 +1,9 @@
 
 --DB creation
-CREATE DATABASE AutoAncillariesLtd
+CREATE DATABASE AutoAncillariesLimited
 GO
 
-USE AutoAncillariesLtd
+USE AutoAncillariesLimited
 GO
 
 
@@ -79,7 +79,7 @@ CREATE TABLE OrderDetail
 (
 	OrderId int PRIMARY KEY IDENTITY,
 	CustomerId int FOREIGN KEY REFERENCES Customer(CustomerId),
-	ProductId int FOREIGN KEY REFERENCES Product(ProductId),
+	ProductId nvarchar(20) FOREIGN KEY REFERENCES Products(ProductId),
 	ShipId int FOREIGN KEY REFERENCES Ship(ShipId),
 	Total money
 )
@@ -94,6 +94,18 @@ CREATE TABLE [dbo].[BrandVehicle](
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
+GO
+
+CREATE TABLE [dbo].[Category](
+	[CategoryID] [nvarchar](20) NOT NULL,
+	[WareHouseID] [nvarchar](20) NULL,
+	[CategoryName] [nvarchar](50) NOT NULL,
+	[Description] [nvarchar](500) NULL,
+ CONSTRAINT [PK_Category] PRIMARY KEY CLUSTERED 
+(
+	[CategoryID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
 GO
 
 
@@ -122,6 +134,37 @@ GO
 --	Description nvarchar(500) NOT NULL
 --)
 --GO
+
+--- Alter ----
+
+ALTER TABLE [dbo].[Products]  WITH CHECK ADD  CONSTRAINT [FK_Products_Category] FOREIGN KEY([CategoryID])
+REFERENCES [dbo].[Category] ([CategoryID])
+GO
+ALTER TABLE [dbo].[Products] CHECK CONSTRAINT [FK_Products_Category]
+GO
+
+ALTER TABLE [dbo].[Products]  WITH CHECK ADD  CONSTRAINT [FK_Products_Company] FOREIGN KEY([BrandID])
+REFERENCES [dbo].[BrandVehicle] ([BrandID])
+GO
+ALTER TABLE [dbo].[Products] CHECK CONSTRAINT [FK_Products_Company]
+GO
+
+ALTER TABLE [dbo].[Category]  WITH CHECK ADD  CONSTRAINT [FK_Category_WareHouse] FOREIGN KEY([WareHouseID])
+REFERENCES [dbo].[WareHouse] ([WareHouseID])
+GO
+ALTER TABLE [dbo].[Category] CHECK CONSTRAINT [FK_Category_WareHouse]
+GO
+
+ALTER TABLE [dbo].[Factory]  WITH CHECK ADD  CONSTRAINT [FK_Factory_Company] FOREIGN KEY([CompanyID])
+REFERENCES [dbo].[Company] ([CompanyID])
+GO
+ALTER TABLE [dbo].[Factory] CHECK CONSTRAINT [FK_Factory_Company]
+GO
+
+ALTER TABLE [dbo].[WareHouse]  WITH CHECK ADD  CONSTRAINT [FK_WareHouse_Factory] FOREIGN KEY([FactoryID])
+REFERENCES [dbo].[Factory] ([FactoryID])
+GO
+ALTER TABLE [dbo].[WareHouse] CHECK CONSTRAINT [FK_WareHouse_Factory]
 
 
 --Insert values (All table except Customer n Order)
