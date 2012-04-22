@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core"
+      >
+
+    <h:head>
+        <title>Auto Ancillaries Limited</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="Auto Ancillaries Limited" />
+<meta name="keywords" content="Auto Ancillaries Limited" />
+<meta name="author" content="Group 5" />
+<link href="#{request.contextPath}/resources/style.css" rel="stylesheet" type="text/css" />
+<script src="#{request.contextPath}/resources/js/jquery-1.4.2.min.js" type="text/javascript"></script>
+<script src="#{request.contextPath}/resources/js/cufon-yui.js" type="text/javascript"></script>
+<script src="#{request.contextPath}/resources/js/cufon-replace.js" type="text/javascript"></script>
+<script src="#{request.contextPath}/resources/js/Myriad_Pro_400.font.js" type="text/javascript"></script>
+<script src="#{request.contextPath}/resources/js/Myriad_Pro_600.font.js" type="text/javascript"></script>
+<script src="#{request.contextPath}/resources/js/NewsGoth_BT_400.font.js" type="text/javascript"></script>
+<script src="#{request.contextPath}/resources/js/NewsGoth_BT_700.font.js" type="text/javascript"></script>
+<script src="#{request.contextPath}/resources/js/NewsGoth_Dm_BT_400.font.js" type="text/javascript"></script>
+<script src="#{request.contextPath}/resources/js/script.js" type="text/javascript"></script>
+    </h:head>
+    <h:body>
+<div id="main">
+<!-- HEADER -->
+	<div id="header">
+		<div class="row-1">
+			<div class="fleft"><a href="home.html"><img src="#{request.contextPath}/resources/images/logo.gif" alt="" /></a></div>
+			<div class="fright">
+				<ul>
+					<li><a href="home.html"><img src="#{request.contextPath}/resources/images/icon1-act.gif" alt="" /></a></li>
+					<li><a href="contact-us.html"><img src="#{request.contextPath}/resources/images/icon2.gif" alt="" /></a></li>
+					<li><a href="sitemap.html"><img src="#{request.contextPath}/resources/images/icon3.gif" alt="" /></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="row-2">
+			<div class="left">
+				<ul>
+					<li><a href="home.html" class="active"><span>home</span></a></li>
+					<li><a href="about-us.html"><span>about</span></a></li>
+					<li><a href="articles.html"><span>articles</span></a></li>
+					<li><a href="contact-us.html"><span>contact</span></a></li>
+					<li class="last"><a href="sitemap.html"><span>site map</span></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="row-3">
+			<div class="inside">
+				<h2>Speed is the Source <b>of Emotions</b></h2>
+				<p>Sed ut perspiciatis unde omnis iste natus error sit volutem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
+				<form action="" id="search-form">
+					<fieldset><label>Search:</label><input type="text" /><a href="#" onclick="document.getElementById('search-form').submit()" class="link1"><em><b>Go!</b></em></a></fieldset>
+				</form>
+			</div>
+		</div>
+		<div class="extra"><img src="#{request.contextPath}/resources/images/header-img.png" alt="" /></div>
+	</div>
+<!-- CONTENT -->
+	<div id="content"><div class="ic">More Website Templates at TemplateMonster.com!</div>
+		<ui:include src="category.xhtml" />
+		<div class="indent">
+			<div class="wrapper">
+                                        <div class="col-1">
+					  
+                                            <ui:insert name="leftmain">Content</ui:insert>
+                                        </div>
+				</div>
+				<ui:include src="rightmain.xhtml" />
+			</div>
+		</div>
+	</div>
+<!-- FOOTER -->
+	<div id="footer">
+		<div class="footer-nav">
+			<div class="left">
+				<ul>
+					<li><a href="home.html">Home</a></li>
+					<li><a href="about-us.html">About</a></li>
+					<li><a href="articles.html">Articles</a></li>
+					<li><a href="contacts-us.html">Contacts</a></li>
+					<li class="last"><a href="sitemap.html">Sitemap</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="bottom">Copyright - Auto Ancillaries Limited<br />
+			<a rel="nofollow" href="#" class="new_window">Website </a> AAL<br />
+			<a href="#" class="new_window">By</a> Group5 - C0910GS4 - Fpt Aptech - Fat 2
+		</div>
+	</div>
+<script type="text/javascript"> Cufon.now(); </script>
+
+    </h:body>
+</html>
+
