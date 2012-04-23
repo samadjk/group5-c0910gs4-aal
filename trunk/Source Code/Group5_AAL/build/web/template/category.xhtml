@@ -8,8 +8,18 @@
 									<div class="box1">
 										<div class="inner">
 											<h4><b>Speed</b> Racing</h4>
-											<p>If you are looking for extreme, try speed racing that gives you a feeling of freedom and danger. Learn more about it from this site. <a href="#"><img src="../resources/images/arrow.gif" alt="" /></a></p>
-										</div>
+											 <div class="nav-container">
+                                                                                                <ul id="nav">
+                                                                                                    <c:forEach items="${categoryBean.listC}" var="item">
+                                                                                                        <li class="level0 nav-1 active level-top first">
+                                                                                                            <a href="viewProductByCategory.xhtml?idC=${item.id}" class="level-top">
+                                                                                                                <span><h:outputText value="${item.name}"/></span>
+                                                                                                            </a>
+                                                                                                        </li>
+                                                                                                    </c:forEach>
+                                                                                                </ul>
+                                                                                            </div>
+                                                                                </div>
 									</div>
 								</div>
 							</div>

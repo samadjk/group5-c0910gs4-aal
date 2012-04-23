@@ -2,14 +2,98 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
         <title>Facelet Title</title>
     </h:head>
     <h:body>
          <ui:composition template="./template/group5.xhtml">
             <ui:define name="leftmain">
-                <p align="center" style="font-size: 18pt; font: bold">Test Demo Master Page by HieuDQ_B00385 !!!</p>
+             <div><div class="new_products">
+                                                    <h2>Hot Products</h2>
+                                                    <ul class="products-grid-new">
+                                                        <c:forEach items="${productBean.productHot}" var="item">
+                                                            <c:set var="index" value="${index+1}"/>
+                                                            <c:choose>
+                                                                <c:when test="#{index==3}">
+                                                                    <li class="item last">
+                                                                        <h:link outcome="viewDetail">
+                                                                            <h:graphicImage name="../Image/${item.image}" width="110" height="110" alt="${item.name}" />
+                                                                            <f:param name="id" value="${item.idPro}" />
+                                                                            <f:param name="idS" value="${item.idHouse}" />
+                                                                        </h:link>
+                                                                        <br></br>
+                                                                        <h3 class="product-name">
+                                                                            <h:link outcome="viewDetail">
+                                                                                <f:param name="id" value="${item.idPro}" />
+                                                                                <f:param name="idS" value="${item.idHouse}" />
+                                                                                <h:outputText value="${item.name}"/>
+                                                                            </h:link>
+                                                                        </h3>
+                                                                        <div class="best_descr">
+                                                                            by warehouse: <a href="viewProductByHouse.xhtml?idH=${item.idHouse}" class="rev_link1"><h:outputText value="${item.house}"/></a>
+                                                                            <br></br>of factory: <h:outputText value="${item.factory}"/>
+                                                                        </div>
+                                                                        <br></br>
+                                                                        <div class="price-box">
+                                                                            <span class="regular-price" id="product-price-44-new">
+                                                                                <span class="price">$ <h:outputText value="${item.price}"/></span></span>
+                                                                        </div>
+                                                                        <div class="actions">
+                                                                            <h:commandButton styleClass="button btn-cart" value="Add to Cart" action="#{cartBean.addToCart}">
+                                                                                <f:setPropertyActionListener target="#{cartBean.productCart}" value="#{item}" />
+                                                                            </h:commandButton>
+                                                                            <h:link outcome="viewDetail" styleClass="btn_details">
+                                                                                <f:param name="id" value="${item.idPro}" />
+                                                                                <f:param name="idS" value="${item.idHouse}" />
+                                                                                <h:outputText value="Details"/>
+                                                                            </h:link>
+                                                                        </div>
+                                                                    </li>
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    <li class="item">
+                                                                        <h:link outcome="viewDetail">
+                                                                            <h:graphicImage name="../Image/${item.image}" width="110" height="110" alt="${item.name}" />
+                                                                            <f:param name="id" value="${item.idPro}" />
+                                                                            <f:param name="idS" value="${item.idHouse}" />
+                                                                        </h:link>
+                                                                        <br></br>
+                                                                        <h3 class="product-name">
+                                                                            <h:link outcome="viewDetail">
+                                                                                <f:param name="id" value="${item.idPro}" />
+                                                                                <f:param name="idS" value="${item.idHouse}" />
+                                                                                <h:outputText value="${item.name}"/>
+                                                                            </h:link>
+                                                                        </h3>
+                                                                        <div class="best_descr">
+                                                                            by warehouse: <a href="viewProductByHouse.xhtml?idH=${item.idHouse}" class="rev_link1"><h:outputText value="${item.house}"/></a>
+                                                                            <br></br>of factory: <h:outputText value="${item.factory}"/>
+                                                                        </div>
+                                                                        <br></br>
+                                                                        <div class="price-box">
+                                                                            <span class="regular-price" id="product-price-44-new">
+                                                                                <span class="price">$ <h:outputText value="${item.price}"/></span></span>
+                                                                        </div>
+                                                                        <div class="actions">
+                                                                            <h:commandButton styleClass="button btn-cart" value="Add to Cart" action="#{cartBean.addToCart}">
+                                                                                <f:setPropertyActionListener target="#{cartBean.productCart}" value="#{item}" />
+                                                                            </h:commandButton>
+                                                                            <h:link outcome="viewDetail" styleClass="btn_details">
+                                                                                <f:param name="id" value="${item.idPro}" />
+                                                                                <f:param name="idS" value="${item.idHouse}" />
+                                                                                <h:outputText value="Details"/>
+                                                                            </h:link>
+                                                                        </div>
+                                                                    </li>
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                        </c:forEach>
+                                                    </ul>
+                                                </div>
+                                            </div>
             </ui:define>
         </ui:composition>
     </h:body>
