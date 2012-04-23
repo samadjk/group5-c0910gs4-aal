@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>View Product by Category</title>
+    </h:head>
+    <h:body>
+         <ui:composition template="./template/group5.xhtml">
+            <ui:define name="leftmain">
+         <br></br>
+        <div class="page-title category-title">
+            <h1>products in category</h1>
+        </div>
+        <br></br>
+        <ol class="products-list" id="products-list">
+            <h:form>
+                <c:forEach items="${productBean.listByCate}" var="item">
+                    <li class="item">
+                        <h:link outcome="viewDetail">
+                            <h:graphicImage name="../Image/${item.image}" width="140" height="120" alt="${item.name}" styleClass="product-image" />
+                            <f:param name="id" value="${item.idPro}" />
+                            <f:param name="idS" value="${item.idHouse}" />
+                        </h:link>
+                        <div class="product-shop">
+                            <div class="f-fix">
+                                <h2 class="product-name">
+                                    <h:link outcome="viewDetail">
+                                        <f:param name="id" value="${item.idPro}" />
+                                        <f:param name="idS" value="${item.idHouse}" />
+                                        <h:outputText value="${item.name}"/>
+                                    </h:link>
+                                </h2>
+                                <c:choose>
+                                    <c:when test="#{item.saleOff==0}">
+                                    </c:when>
+                                    <c:otherwise>
+                                        <div align="right">
+                                            <font style="color: red; font-style: oblique; font-weight: bold; font-size: larger">
+                                                Sale Off</font>
+                                            <font style="color: red; font-size: x-large; font-weight: bold">
+                                                &nbsp;<h:outputText value="${item.saleOff}"/> %&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>
+                                        </div>
+                                    </c:otherwise>
+                                </c:choose>
+                                <div class="ratings">
+                                    <div class="rating-box">
+                                        <div class="rating" style="width:80%"></div>
+                                    </div>
+                                    <p class="rating-links">
+                                        by warehouse: <a href="viewProductByHouse.xhtml?idH=${item.idHouse}" class="rev_link1"><h:outputText value="${item.house}"/></a>
+                                        of factory: <h:outputText value="${item.factory}"/>
+                                    </p>
+                                </div>
+                                <div class="price-box">
+                                    <span class="regular-price" id="product-price-1">
+                                        <span class="price">$ <h:outputText value="${item.price}"/></span>
+                                    </span>
+                                </div>
+                                <p>
+                                    <h:commandButton styleClass="button btn-cart" value="Add to Cart" action="#{cartBean.addToCart}">
+                                        <f:setPropertyActionListener target="#{cartBean.productCart}" value="#{item}" />
+                                    </h:commandButton>    
+                                </p>
+                                <br/><br/>
+                                <p style="margin-left: 70px;">
+                                    <h:commandLink styleClass="link-compare" value="ADD TO COMPARE" action="#{compareProductBean.compareProductAddList}">
+                                        <f:setPropertyActionListener target="#{compareProductBean.productCompare}" value="#{item}" />
+                                    </h:commandLink>
+                                </p>
+                                <div class="desc std">
+                                    <p><h:outputText value="${item.des}"/></p>
+                                    <a href="viewDetail.xhtml?id=${item.idPro}" title="Digital Tire Pressure Monitor" class="link-learn">Detail</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </c:forEach>
+            </h:form>
+        </ol>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

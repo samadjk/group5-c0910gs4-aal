@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="Template/templatepage.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <ui:define name="leftmain">
+        <br></br>
+        <div class="page-title category-title">
+            <h1>All Products</h1>
+        </div>
+
+        <c:if test="#{sessionScope['rqProductName']=='null'}">
+            <ul class="messages"><li class="success-msg"><ul><li><span>The product <i><h:outputText value="${sessionScope['rqProductName']}"/></i> has been added to comparison list.</span></li></ul></li></ul>
+        </c:if> 
+        <h:form>
+            <ul class="products-grid first even">
+                <c:forEach items="${productBean.listP}" var="item">
+                    <c:set var="index" value="${index+1}"/>
+                    <c:choose>
+                        <c:when test="#{index==3}">
+                            <li class="item last">
+                                <h:link outcome="viewDetail">
+                                    <h:graphicImage name="../Image/${item.image}" width="180" height="180" alt="${item.name}" />
+                                    <f:param name="id" value="${item.idPro}" />
+                                    <f:param name="idS" value="${item.idHouse}" />
+                                </h:link>
+                                <h2 class="product-name">
+                                    <h:link outcome="viewDetail">
+                                        <f:param name="id" value="${item.idPro}" />
+                                        <f:param name="idS" value="${item.idHouse}" />
+                                        <h:outputText value="${item.name}"/>
+                                    </h:link>
+                                </h2>
+                                <div class="price-box">
+                                    <span class="regular-price" id="product-price-36">
+                                        <span class="price">$ <h:outputText value="${item.price}"/></span></span>
+                                </div>
+                                <div class="actions">
+                                    <h:commandButton styleClass="button btn-cart" value="Add to Cart" action="#{cartBean.addToCart}">
+                                        <f:setPropertyActionListener target="#{cartBean.productCart}" value="#{item}" />
+                                    </h:commandButton>
+                                </div>
+                                <ul class="add-to-links">
+                                    <li><span class="separator">|</span>
+                                        <h:commandLink styleClass="link-compare" value="ADD TO COMPARE" action="#{compareProductBean.compareProductAddList}">
+                                            <f:setPropertyActionListener target="#{compareProductBean.productCompare}" value="#{item}" />
+                                        </h:commandLink>
+                                    </li>
+                                </ul>
+                            </li>
+                            <c:set var="index" value="0"/>
+                        </c:when>
+                        <c:otherwise>
+                            <li class="item">
+                                <h:link outcome="viewDetail">
+                                    <h:graphicImage name="../Image/${item.image}" width="180" height="180" alt="${item.name}" />
+                                    <f:param name="id" value="${item.idPro}" />
+                                    <f:param name="idS" value="${item.idHouse}" />
+                                </h:link>
+                                <h2 class="product-name">
+                                    <h:link outcome="viewDetail">
+                                        <f:param name="id" value="${item.idPro}" />
+                                        <f:param name="idS" value="${item.idHouse}" />
+                                        <h:outputText value="${item.name}"/>
+                                    </h:link>
+                                </h2>
+                                <div class="price-box">
+                                    <span class="regular-price" id="product-price-36">
+                                        <span class="price">$ <h:outputText value="${item.price}"/></span></span>
+                                </div>
+                                <div class="actions">
+                                    <h:commandButton styleClass="button btn-cart" value="Add to Cart" action="#{cartBean.addToCart}">
+                                        <f:setPropertyActionListener target="#{cartBean.productCart}" value="#{item}" />
+                                    </h:commandButton>
+                                </div>
+                                <ul class="add-to-links">
+                                    <li><span class="separator">|</span>
+                                        <h:commandLink styleClass="link-compare" value="ADD TO COMPARE" action="#{compareProductBean.compareProductAddList}">
+                                            <f:setPropertyActionListener target="#{compareProductBean.productCompare}" value="#{item}" />
+                                        </h:commandLink>
+                                    </li>
+                                </ul>
+                            </li>
+                        </c:otherwise>
+                    </c:choose>
+                </c:forEach>
+            </ul>
+        </h:form>
+        <c:set var="index" value="0"/>
+    </ui:define>
+</ui:composition>
+
