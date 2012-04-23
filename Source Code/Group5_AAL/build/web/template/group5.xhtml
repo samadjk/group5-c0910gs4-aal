@@ -30,7 +30,7 @@
 <!-- HEADER -->
 	<div id="header">
 		<div class="row-1">
-			<div class="fleft"><a href="home.html"><img src="#{request.contextPath}/resources/images/logo.gif" alt="" /></a></div>
+			<div class="fleft"><a href="home.html"><img src="#{request.contextPath}/resources/images/logo.png" alt="Group 5 - AAl" /></a></div>
 			<div class="fright">
 				<ul>
 					<li><a href="home.html"><img src="#{request.contextPath}/resources/images/icon1-act.gif" alt="" /></a></li>
@@ -52,8 +52,8 @@
 		</div>
 		<div class="row-3">
 			<div class="inside">
-				<h2>Speed is the Source <b>of Emotions</b></h2>
-				<p>Sed ut perspiciatis unde omnis iste natus error sit volutem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
+				<h2>Group 5 C0910GS4 - Fat2<b>eProjects</b></h2>
+				<p>Auto Ancillaries Limited (AAL) is in the business of manufacturing important ancillaries for the two-wheeler and four-wheeler automobile industry. For the past few months they have been facing problems with their current system.</p>
 				<form action="" id="search-form">
 					<fieldset><label>Search:</label><input type="text" /><a href="#" onclick="document.getElementById('search-form').submit()" class="link1"><em><b>Go!</b></em></a></fieldset>
 				</form>
@@ -63,12 +63,81 @@
 	</div>
 <!-- CONTENT -->
 	<div id="content"><div class="ic">More Website Templates at TemplateMonster.com!</div>
-		<ui:include src="category.xhtml" />
+		
+           <ul class="box-list">
+			<li>
+				<div class="box">
+					<div class="border-bot">
+						<div class="right-bot-corner">
+							<div class="left-bot-corner">
+								<div class="inner">
+									<div class="box1">
+										<div class="inner">
+											<h4><b>Category</b></h4>
+											 <div class="nav-container">
+                                                                                                <ul id="nav">
+                                                                                                    <c:forEach items="${categoryBean.listC}" var="item">
+                                                                                                        <li class="level0 nav-1 active level-top first">
+                                                                                                            <a href="viewProductByCategory.xhtml?idC=${item.id}" class="level-top">
+                                                                                                                <span><h:outputText value="${item.name}"/></span>
+                                                                                                            </a>
+                                                                                                        </li>
+                                                                                                    </c:forEach>
+                                                                                                </ul>
+                                                                                            </div>
+                                                                                </div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li class="alt">
+				<div class="box">
+					<div class="border-bot">
+						<div class="right-bot-corner">
+							<div class="left-bot-corner">
+								<div class="inner">
+									<div class="box1">
+										<div class="inner">
+											<h4><b>My</b> Cart</h4>
+											<p>Free 1028X768 Optimized Website Template from TemplateMonster.com! We hope that you like this template and will use for your websites. <a href="#"><img src="../resources/images/arrow.gif" alt="" /></a></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li class="last">
+				<div class="box">
+					<div class="border-bot">
+						<div class="right-bot-corner">
+							<div class="left-bot-corner">
+								<div class="inner">
+									<div class="box1">
+										<div class="inner">
+											<h4><b>Car</b> Concepts</h4>
+											<p>Learn more about the latest car con-	cepts from this sample article. Lorem ipsum dolor sit amet, consectetur adipisicing elitimod. <a href="#"><img src="../resources/images/arrow.gif" alt="" /></a></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+		</ul> 
+            
+            
+            
 		<div class="indent">
-			<div class="wrapper">
+                                <div class="wrapper">
                                         <div class="col-1">
 					  
-                                            <ui:insert name="leftmain">Content</ui:insert>
+                                            <ui:insert name="leftmain"></ui:insert>
                                         </div>
 				</div>
 				<ui:include src="rightmain.xhtml" />
