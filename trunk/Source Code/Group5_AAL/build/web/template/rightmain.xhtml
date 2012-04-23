@@ -1,13 +1,24 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
 <div class="col-2">
     <div class="box2">
 					<div class="border-top">
 							<div class="left-top-corner">
 								<div class="right-top-corner">
 									<div class="inner">
-										<h4><b>Latest</b> News</h4>
+										<h4>Category</h4>
 										<ul class="news">
-											<li><a href="#">May 21, 2010</a><p>Lorem ipsum dolor sit amet, coisectur adipisicing elit, sed doeiusmo.</p></li>
-											<li><a href="#">May 12, 2010</a><p>Ut enim ad minim veniam, qnostrud exercitation ullamco.</p></li>
+					
+                         
+                                                                                  <c:forEach items="${categoryBean.listC}" var="item">
+                                                                                   <li>
+                                                                                    <a href="viewProductByCategory.xhtml?idC=${item.id}" class="level-top">
+                                                                                      <span><h:outputText value="${item.name}"/></span>
+                                                                                     </a>
+                                                                                   </li>
+                                                                                    </c:forEach>
 										</ul>
 									</div>
 								</div>
@@ -18,17 +29,95 @@
 						<div class="right-bot-corner">
 							<div class="left-bot-corner">
 								<div class="inner">
-									<h4><b>Login</b> Form</h4>
-									<form action="" id="login-form">
-										<fieldset>
-											<div class="field"><label>Username:</label><input type="text" /></div>
-											<div class="field"><label>Password:</label><input type="password" /></div>
-											<div class="field1"><label class="extra">Remember Me:</label><input type="checkbox" class="extra" /><a href="#" onclick="document.getElementById('login-form').submit()"><em><b>Log In<span>Log In</span></b></em></a></div>
-											<ul><li><a href="#">Forgot your password?</a></li><li class="last"><a href="#">Register</a></li></ul>
-										</fieldset>
-									</form>
+									<h4><b>Users</b> Panel</h4>                                                        
+                                <ul class="news2">
+                                    <c:if test="#{sessionScope['ssAccount']!=null}">
+                                        <c:if test="#{benefitBean.levelUp==1}">
+                                            <li>
+                                                <a href="myAccount.xhtml" title="My Account" >Level Up <img style="margin-top: -10px;" alt=""  src="../Image/new_icon.gif" width="20px" height="20px" border="0"/></a>
+                                            </li>
+                                        </c:if>
+                                        <li>
+                                            <a href="myAccount.xhtml" title="My Account" >My Account</a>
+                                        </li>
+                                        <li>
+                                            <a href="myOrder.xhtml" title="My Account" >My Order</a>
+                                        </li>
+                                    </c:if>
+                                    <li ><a href="yourcart.xhtml" title="My Cart" class="top-link-cart">My Cart</a></li>
+                                    <c:choose>
+                                        <c:when test="#{sessionScope['ssAccount']!=null}">
+                                            <li class=" last" >
+                                                <a href="loginpage.xhtml" title="Log In" >Log out</a>
+                                            </li>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <li class=" last" ><a href="loginpage.xhtml" title="Log In" >Log In</a></li>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </ul>
+								</div>
+							</div>
+						</div>
+    </div>
+    
+    <div class="box4">
+						<div class="right-bot-corner">
+							<div class="left-bot-corner">
+								<div class="inner">
+									<h4><b>Shopping</b> Cart</h4>
+			
+
+                                     <c:choose>
+                                    <c:when test="#{sessionScope['cartProduct']==null}">
+                                        <div class="block-content">
+                                            <p class="empty">You have <strong>no items</strong> in your shopping cart.</p>
+                                        </div>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <div class="block-content">
+                                            <div class="summary">
+                                                <p class="amount">There are <a href="yourcart.xhtml"><h:outputText value="${cartManagedBean.countCart}"/> items</a> in your cart.</p>
+                                                <p class="subtotal">
+                                                    <span class="label">Cart Subtotal:</span> <span class="price">$<h:outputText value="${cartManagedBean.totalPrice}"/></span>                                                </p>
+                                            </div>
+                                            <p class="block-subtitle">Recently added item(s)</p>
+                                            <h:form>
+                                                <ol class="mini-products-list" id="cart-sidebar">
+                                                    <c:forEach items="${cartManagedBean.listProductCart}" var="item">
+                                                        <li class="item odd">
+                                                            <h:link outcome="viewDetail" styleClass="product-image" title="${item.productName}">
+                                                                <f:param name="id" value="${item.productId}" />
+                                                                <h:graphicImage name="../Image/${item.productImage}" width="80px" height="80px" />
+                                                            </h:link>
+                                                            <div class="product-details">
+                                                                <h:commandButton styleClass="btn-remove" style="border: none;" onclick="return confirm('Are you sure you would like to remove this item from the shopping cart?')" value="Remove item" action="#{cartBean.deleteProductInCart}">
+                                                                    <f:setPropertyActionListener target="#{cartBean.productDelete}" value="#{item}" />
+                                                                    <f:param name="deleteFromRightMenu" value="1" />
+                                                                </h:commandButton>
+                                                                <a class="btn-edit" title="Edit item" href="http://livedemo00.template-help.com/magento_37649/checkout/cart/configure/id/464/">Edit item</a>
+                                                                <p class="product-name">
+                                                                    <h:link value="${item.productName}" outcome="viewDetail" >
+                                                                        <f:param name="id" value="${item.productId}" />
+                                                                    </h:link>
+                                                                </p>
+                                                                <strong><h:outputText value="$${item.productQuantity}"/></strong> x
+                                                                <span class="price"><h:outputText value="$${item.productPrice}"/></span>
+                                                            </div>
+                                                        </li>
+                                                    </c:forEach>
+                                                </ol>
+                                            </h:form>
+                                            <div class="actions">
+                                                <button onclick="setLocation('http://livedemo00.template-help.com/magento_37649/checkout/onepage/')" class="button" title="Checkout" type="button"><span><span>Checkout</span></span></button>
+                                            </div>
+                                            <script type="text/javascript">decorateList('cart-sidebar', 'none-recursive')</script>
+                                        </div>
+                                    </c:otherwise>
+                                </c:choose>
 								</div>
 							</div>
 						</div>
     </div>
 </div>
+</html>    
