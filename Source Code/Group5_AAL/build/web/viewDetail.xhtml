@@ -1,0 +1,225 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+         <ui:composition template="./template/group5.xhtml">
+            <ui:define name="leftmain">
+           <div class="product-view">
+            <h:form>
+                <c:forEach items="${productBean.listDetail}" var="item">
+                    <div class="product-essential"><div class="page-title">
+                            <h1><h:outputText value="${item.name}"/></h1>
+                        </div>
+                        <div class="product-shop">
+                            <c:choose>
+                                <c:when test="#{item.saleOff==0}">
+                                </c:when>
+                                <c:otherwise>
+                                    <div align="right">
+                                        <font style="color: red; font-style: oblique; font-weight: bold; font-size: larger">
+                                            Sale Off</font>
+                                        <font style="color: red; font-size: x-large; font-weight: bold">
+                                            &nbsp;<h:outputText value="${item.saleOff}"/> %&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>
+                                    </div>
+                                </c:otherwise>
+                            </c:choose>
+                            <br></br>
+                            <div class="ratings">
+                                <div class="rating-box">
+                                    <div class="rating" style="width:80%"></div>
+                                </div>
+                                <p class="rating-links">
+                                    by warehouse: <a href="viewProductByHouse.xhtml?idH=${item.idHouse}" class="rev_link1"><h:outputText value="${item.house}"/></a>
+                                    of <h:outputText value="${item.factory}"/>
+                                </p>
+                            </div>
+                            <div class="price-box">
+                                <c:choose>
+                                    <c:when test="#{item.saleOff==0}">
+                                        <div class="spec_price">
+                                            $ <h:outputText value="${item.price}"/>
+                                        </div>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <div class="spec_price">
+                                            $ <h:outputText value="${item.sell}"/>
+                                            <strong>$ <h:outputText value="${item.price}"/></strong>
+                                        </div>
+                                    </c:otherwise>
+                                </c:choose>
+                            </div>
+                            <p style="color:blue">Availability : <span>In stock</span></p>
+                            <div class="clear"></div>
+                            <div class="add-to-box">
+                                <div class="add-to-cart">
+                                    <label for="qty">Quantity:</label>
+                                    <input type="text" name="qty" id="qty" maxlength="12" value="1" title="Qty" class="input-text qty" />
+                                    <h:commandButton styleClass="button btn-cart" value="Add to Cart" action="#{cartBean.addToCart}">
+                                        <f:setPropertyActionListener target="#{cartBean.productCart}" value="#{item}" />
+                                    </h:commandButton>
+                                </div>
+                            </div>
+                            <div class="short-description">
+                                <h2>Quick Overview</h2>
+                                <div class="std"><p><h:outputText value="${item.des}"/></p></div>
+                                <br />
+                                <c:choose>
+                                    <c:when test="#{reviewBean.checkReview==true}">
+                                        <h3>You voted for this product. ! </h3>
+                                        <br />
+                                        <c:forEach items="${reviewBean.listRateByUserForProduct}" var="item">
+                                            <h4>You voted #{item.rateValue} star(s) for this product !</h4>
+                                        </c:forEach>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <fieldset>
+                                            <h4>How do you rate this product? <em class="required">*</em></h4>
+                                            <span id="input-message-box"></span>
+                                            <table id="product-review-table" width="50%" class="data-table">
+                                                <colgroup>
+                                                    <col width="1px" />
+                                                    <col width="1px" />
+                                                    <col width="1px" />
+                                                    <col width="1px" />
+                                                    <col width="1px" />
+                                                </colgroup>
+                                                <thead>
+                                                    <tr class="first last">
+                                                        <th><span class="nobr">1 star</span></th>
+                                                        <th><span class="nobr">2 stars</span></th>
+                                                        <th><span class="nobr">3 stars</span></th>
+                                                        <th><span class="nobr">4 stars</span></th>
+                                                        <th><span class="nobr">5 stars</span></th>
+                                                    </tr>
+                                                </thead>
+                                            </table>
+                                            <h:selectOneRadio id="subscriptions" value="#{reviewBean.valueRate}" styleClass="data-table1">
+                                                <f:selectItem id="itemabc" itemLabel="" itemValue="1" />
+                                                <f:selectItem id="item2" itemLabel="" itemValue="2" />
+                                                <f:selectItem id="item3" itemLabel="" itemValue="3" />
+                                                <f:selectItem id="item4" itemLabel="" itemValue="4" />
+                                                <f:selectItem id="item5" itemLabel="" itemValue="5" />
+                                            </h:selectOneRadio>
+                                        </fieldset>
+                                        <div class="buttons-set">
+                                            <h:commandButton styleClass="button" value="Submit Review" action="#{reviewBean.submitReviewProduct}">
+                                            </h:commandButton>
+                                        </div>
+                                    </c:otherwise>
+                                </c:choose>
+                            </div>
+                        </div>
+                        <div class="product-img-box">
+                            <p class="product-image product-image-zoom">
+                                <img id="image" src="../Image/${item.image}" alt="Digital Tire Pressure Monitor" title="Digital Tire Pressure Monitor" /></p>
+                            <p class="zoom-notice" id="track_hint">Double click on above image to view full picture</p>
+                            <div class="zoom">
+                                <img id="zoom_out" src="#{request.contextPath}/resources/images/slider_btn_zoom_out.gif" alt="Zoom Out" title="Zoom Out" class="btn-zoom-out" />
+                                <div id="track">
+                                    <div id="handle"></div>
+                                </div>
+                                <img id="zoom_in" src="#{request.contextPath}/resources/images/slider_btn_zoom_in.gif" alt="Zoom In" title="Zoom In" class="btn-zoom-in" />
+                            </div>
+                            <script type="text/javascript">
+//<![CDATA[
+    Event.observe(window, 'load', function() {
+        product_zoom = new Product.Zoom('image', 'track', 'handle', 'zoom_in', 'zoom_out', 'track_hint');
+    });
+//]]>
+                            </script>
+                        </div>
+                        <div class="clearer"></div>
+                    </div>
+                </c:forEach>
+            </h:form>
+            <div class="product-collateral">
+                <div class="box-collateral box-description">
+                    <h2>Details</h2>
+                    <div class="std">
+                        <p><strong>Nowadays</strong> we have great opportunities to satisfy our demands with the high quality products. <strong>We are proud</strong> to present our wonderful choice of wheels and tires. <strong>Without a doubt we are the leading</strong> company in this sphere.</p><p>Our company is the pioneer of this business because we provide a great number of new technologies concerning design solutions and some technological specialties. <em>We guarantee the premium quality</em> and fair prices of our goods.</p><p><strong>The interesting design</strong> is very important thing in our sphere and we are trying to stay in touch with the latest fashion trends. We care about the durability of our products and we are sure that it is perfect.</p><p>As you understand the products of our store are a unique combination of original design, reasonable price and undoubted reliability. Our assortment can satisfy any client's whim because it's literally unlimited.</p></div>
+                </div>
+                <div class="box-collateral box-up-sell">
+                    <h2>You may also be interested in the following product(s)</h2>
+                    <ul class="products-grid" id="upsell-product-table">                      
+                        <c:set var="index" value="0"/>
+                        <c:forEach items="${houseBean.listSameHouse}" var="item">
+                            <c:set var="index" value="${index+1}"/>
+                            <c:choose>
+                                <c:when test="${index==3}">
+                                    <li class="item last">
+                                        <h:link outcome="viewDetail">
+                                            <h:graphicImage name="../Image/${item.image}" width="110" height="110" alt="${item.name}" />
+                                            <f:param name="id" value="${item.idPro}" />
+                                            <f:param name="idS" value="${item.idHouse}" />
+                                        </h:link>
+                                        <br></br><br></br>
+                                        <h3 class="product-name">
+                                            <h:link outcome="viewDetail">
+                                                <f:param name="id" value="${item.idPro}" />
+                                                <f:param name="idS" value="${item.idHouse}" />
+                                                <h:outputText value="${item.name}"/>
+                                            </h:link>
+                                        </h3>
+                                        <div class="price-box">
+                                            <span class="regular-price" id="product-price-1">
+                                                <span class="price">$ <h:outputText value="${item.price}"/></span></span>
+                                        </div>
+                                    </li>
+                                </c:when>
+                                <c:otherwise>
+                                    <li class="item first">
+                                        <h:link outcome="viewDetail">
+                                            <h:graphicImage name="../Image/${item.image}" width="120" height="120" alt="${item.name}" />
+                                            <f:param name="id" value="${item.idPro}" />
+                                            <f:param name="idS" value="${item.idHouse}" />
+                                        </h:link>
+                                        <br></br><br></br>
+                                        <h3 class="product-name">
+                                            <h:link outcome="viewDetail">
+                                                <f:param name="id" value="${item.idPro}" />
+                                                <f:param name="idS" value="${item.idHouse}" />
+                                                <h:outputText value="${item.name}"/>
+                                            </h:link>
+                                        </h3>
+                                        <div class="price-box">
+                                            <span class="regular-price" id="product-price-1">
+                                                <span class="price">$ <h:outputText value="${item.price}"/></span></span>
+                                        </div>
+                                    </li>
+                                </c:otherwise>
+                            </c:choose>
+
+                        </c:forEach>
+                    </ul>
+                </div>
+                <div class="box-collateral box-tags">
+                    <h2>Product Tags</h2>
+                    <form id="addTagForm" action="" method="get">
+                        <div class="form-add">
+                            <label for="productTagName">Add Your Tags:</label>
+                            <div class="input-box">
+                                <input type="text" class="input-text required-entry" name="productTagName" id="productTagName" />
+                            </div>
+                            <button type="button" title="Add Tags" class="button" onclick="submitTagForm()">
+                                <span>
+                                    <span>Add Tags</span>
+                                </span>
+                            </button>
+                        </div>
+                    </form>
+                    <p class="note">Use spaces to separate tags. Use single quotes (') for phrases.</p>       
+                </div>
+            </div>
+        </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+
