@@ -11,10 +11,14 @@
     <h:body>
          <ui:composition template="./template/group5.xhtml">
             <ui:define name="leftmain">
-                <table>
-                    <h:form>
-                  <div><div class="new_products">
-                                                    <h2>Hot Products</h2>
+                <table width="100%" border="0">
+  <tr>
+    <td>
+         <h:form>
+                                 <div><div class="new_products">
+                                         <div class="page-title">
+                                                    <h3>Hot Products</h3>
+                                         </div>
                                                     <ul class="products-grid-new">
                                                         <c:forEach items="${productBean.productHot}" var="item">
                                                             <c:set var="index" value="${index+1}"/>
@@ -35,8 +39,12 @@
                                                                             </h:link>
                                                                         </h3>
                                                                         <div class="best_descr">
-                                                                            by warehouse: <a href="viewProductByHouse.xhtml?idH=${item.idHouse}" class="rev_link1"><h:outputText value="${item.house}"/></a>
-                                                                            <br></br>of factory: <h:outputText value="${item.factory}"/>
+                                                                            <h:link outcome="viewProductByHouse" >
+                                                                                <f:param name="idH" value="${item.idHouse}" />
+                                                                                <h:outputText value="${item.house}"/>
+                                                                            </h:link>
+
+                                                                            <br></br>Factory: <h:outputText value="${item.factory}"/>
                                                                         </div>
                                                                         <br></br>
                                                                         <div class="price-box">
@@ -71,8 +79,13 @@
                                                                             </h:link>
                                                                         </h3>
                                                                         <div class="best_descr">
-                                                                            by warehouse: <a href="viewProductByHouse.xhtml?idH=${item.idHouse}" class="rev_link1"><h:outputText value="${item.house}"/></a>
-                                                                            <br></br>of factory: <h:outputText value="${item.factory}"/>
+                                                                            By warehouse:
+                                                                            <h:link outcome="viewProductByHouse" >
+                                                                                <f:param name="idH" value="${item.idHouse}" />
+                                                                                <h:outputText value="${item.house}"/>
+                                                                            </h:link>
+
+                                                                            <br></br>Factory: <h:outputText value="${item.factory}"/>
                                                                         </div>
                                                                         <br></br>
                                                                         <div class="price-box">
@@ -96,15 +109,18 @@
                                                     </ul>
                                                 </div>
                                             </div>
-                    </h:form>     
-                </table>
-                <br></br>
-                <tr></tr>
-                <table>
-                    <h:form>
-             <div class="specials_block">
+                    </h:form>
+
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr>
+    <td>
+         <h:form>
+                        <div class="specials_block">
                              <div class="page-title">
-                                    <h1>Specials</h1>
+                                    <h3>Specials</h3>
                              </div>
                                                 <div class="specials_box">
                                                     <c:forEach items="${productBean.productSpecial}" var="item">
@@ -134,7 +150,9 @@
                                                 </div>
                                             </div>
         </h:form>
-       </table>
+    </td>
+  </tr>
+</table>
             </ui:define>
         </ui:composition>
     </h:body>
