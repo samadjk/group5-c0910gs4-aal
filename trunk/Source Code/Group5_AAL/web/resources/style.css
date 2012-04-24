@@ -366,6 +366,7 @@ p.required { font-size:10px; text-transform:uppercase; font-weight:700; text-ali
 .page-title { margin:0 0 15px; }
 .page-title h1,
 .page-title h2 { font-size:18px; font-weight:800; font-style:italic; text-transform:uppercase; color:#2B2C2F; }
+.page-title h3 { font-size:18px; font-weight:800; font-style:italic; text-transform:uppercase; color:#000000; border: thin dotted #0099FF;}
 .page-title .separator { margin:0 3px; }
 .page-title .link-rss { float:right; }
 .title-buttons { text-align:right; }
@@ -790,7 +791,7 @@ tr.summary-details-excluded { font-style:italic; }
 .products-grid .price-box.map-info a { display:block; font-size:11px; }
 
 .products-grid-new { position:relative; }
-.products-grid-new li.item { float:left; width:100px; border-right:solid 1px #000000; padding:0 18px 21px 0; margin:0 17px 0 0; }
+.products-grid-new li.item { float:left; width:100px; border-right:dotted 1px #000000; padding:0 18px 21px 0; margin:0 17px 0 0; }
 .products-grid-new li.last { border-right:0 !important; padding:0 0 21px 0 !important; margin:0 !important; }
 .products-grid-new .product-image { display:block; width:100px; height:100px; margin:0 0 7px; }
 .products-grid-new .product-name { margin:0 0 13px; font-weight:bold; font-size:8px; font-style:italic; line-height:12px; }
@@ -1461,7 +1462,7 @@ tr.summary-details-excluded { font-style:italic; }
 .specials_block {}
 .specials_block h2 { background:url(resources/images/t_spec.gif) repeat-x; padding:7px 0 9px 20px; font-size:19px; font-weight:800; font-style:italic; color:#000000; text-transform:uppercase; }
 .specials_box { background:#ffffff url(esources/images/specials_box.gif) repeat-x; padding:9px 0 0 0; }
-.special_item { padding:11px 20px; border-bottom:solid 1px #2B2B2D; overflow:hidden; }
+.special_item { padding:11px 20px; border-bottom:dotted 1px #000000; overflow:hidden; }
 .special_item.last { border:0; }
 .spec_pic { float:left; margin:0 18px 0 0; }
 .spec_wrap { float:left; padding:5px 0 0 0; width:192px; }
@@ -1470,3 +1471,8 @@ tr.summary-details-excluded { font-style:italic; }
 .spec_wrap h3 a:hover { color:#F8E905; text-decoration:none; }
 .spec_price { font-size:18px; font-weight:700; font-style:italic; color:#C7171A; }
 .spec_price strong { padding:0 0 0 5px; text-decoration:line-through; color:#5C6066; }
+
+
+.skyproduct {
+	border: 1px dotted #FFFFFF;
+}
