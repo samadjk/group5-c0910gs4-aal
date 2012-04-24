@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Login Group5</title>
+    </h:head>
+    <h:body>
+         <ui:composition template="./template/group5.xhtml">
+             <ui:define name="leftmain">
+        <title>Customer Login</title>
+        <div class="account-login">
+            <div class="page-title">
+                <h1>Login or Create an Account</h1>
+            </div>
+            <!--<form id="login-form" method="post" action="http://livedemo00.template-help.com/magento_37649/customer/account/loginPost/">-->
+            <h:form id="login-form">
+                <div class="col2-set">
+                    <div class="col-1 new-users">
+                        <div class="content">
+                            <h2>New Customers</h2>
+                            <p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
+                        </div>
+                    </div>
+                    <div class="col-2 registered-users">
+                        <div class="content">
+                            <h2>Registered Customers</h2>
+                            <p>If you have an account with us, please log in.</p>
+                            <c:choose>
+                                <c:when test="#{sessionScope['ssCheckout']==true}">
+                                    <p><font color="red"><b>* Please login before checkout your cart !</b></font></p>
+                                </c:when>
+                                <c:when test="#{sessionScope['ssRateProduct']!= null}">
+                                    <p><font color="red"><b>* Please login before review product !</b></font></p>
+                                </c:when>
+                            </c:choose>
+                            <ul class="form-list">
+                                <li>
+                                    <label class="required" for="username"><em>*</em>Username</label>
+                                    <div class="input-box">
+                                        <!--    <input type="text" title="Email Address" class="input-text required-entry validate-email" id="email" value="" name="login[username]" />-->
+                                        <h:inputText title="Username" styleClass="input-text required-entry" id="username" value="#{loginBean.c.username}"></h:inputText>
+                                    </div>
+                                </li>
+                                <li>
+                                    <label class="required" for="pass"><em>*</em>Password</label>
+                                    <div class="input-box">
+                                        <!-- <input type="password" title="Password" id="pass" class="input-text required-entry validate-password" name="login[password]" />-->
+                                        <h:inputSecret title="Password" styleClass="input-text required-entry" id="password" value="#{loginBean.c.pass}"></h:inputSecret>
+                                    </div>
+                                </li>
+                            </ul>
+                            <p class="required">* Required Fields</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col2-set">
+                    <div class="col-1 new-users">
+                        <div class="buttons-set">
+                            <button onclick="window.location='registerpage.xhtml';" class="button" title="Create an Account" type="button"><span><span>Create an Account</span></span></button>
+                        </div>
+                    </div>
+                    <div class="col-2 registered-users">
+                        <div class="buttons-set">
+                            <a class="f-left" href="http://livedemo00.template-help.com/magento_37649/customer/account/forgotpassword/">Forgot Your Password?</a>
+                            <!-- <button id="send2" name="send" title="Login" class="button" type="submit"><span><span>Login</span></span></button>-->
+                            <h:commandButton value="Login" styleClass="button"  title="Login" id="send2" action="#{loginBean.login}" style="margin-left: 250px;background-color: #ff0000;width: 50px"></h:commandButton>
+                        </div>
+                    </div>
+                </div>
+                <!--            </form>-->
+            </h:form>
+            <script type="text/javascript">
+            //&lt;![CDATA[
+                var dataForm = new VarienForm('login-form', true);
+            //]]&gt;
+            </script>
+        </div>
+    </ui:define>
+</ui:composition>
+</h:body>
+</html>

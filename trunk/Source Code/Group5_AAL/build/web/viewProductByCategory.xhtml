@@ -11,12 +11,9 @@
     <h:body>
          <ui:composition template="./template/group5.xhtml">
             <ui:define name="leftmain">
-         <br></br>
-        <div class="page-title category-title">
-            <h1>products in category</h1>
-        </div>
-        <br></br>
-        <ol class="products-list" id="products-list">
+                 <div class="page-title category-title">
+                    <h1>Products in category</h1>
+                    </div>
             <h:form>
                 <c:forEach items="${productBean.listByCate}" var="item">
                     <li class="item">
@@ -80,7 +77,6 @@
                     </li>
                 </c:forEach>
             </h:form>
-        </ol>
             </ui:define>
         </ui:composition>
     </h:body>

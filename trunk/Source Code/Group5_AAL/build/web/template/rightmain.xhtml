@@ -14,9 +14,12 @@
                          
                                                                                   <c:forEach items="${categoryBean.listC}" var="item">
                                                                                    <li>
-                                                                                    <a href="viewProductByCategory.xhtml?idC=${item.id}" class="level-top">
-                                                                                      <span><h:outputText value="${item.name}"/></span>
-                                                                                     </a>
+                                                                                       
+                                                                                        <h:link outcome="viewProductByCategory" class="level-top">
+                                                                                            <f:param name="idC" value="${item.id}" />
+                                                      
+                                                                                            <span><h:outputText value="${item.name}"/></span>
+                                                                                         </h:link>
                                                                                    </li>
                                                                                     </c:forEach>
 										</ul>
@@ -52,7 +55,17 @@
                                             </li>
                                         </c:when>
                                         <c:otherwise>
-                                            <li class=" last" ><a href="loginpage.xhtml" title="Log In" >Log In</a></li>
+                                            <li class=" last" >
+                                                    <h:link outcome="loginpage">                      
+                                                        <h:outputText value="Login"/>
+                                                    </h:link>
+                                            </li>
+                                            <li class=" last" >
+                                                   <h:link outcome="registerpage">                      
+                                                    <h:outputText value="Register"/>
+                                                   </h:link>
+                                                
+                                            </li>
                                         </c:otherwise>
                                     </c:choose>
                                 </ul>
@@ -95,7 +108,7 @@
                                                                     <f:setPropertyActionListener target="#{cartBean.productDelete}" value="#{item}" />
                                                                     <f:param name="deleteFromRightMenu" value="1" />
                                                                 </h:commandButton>
-                                                                <a class="btn-edit" title="Edit item" href="http://livedemo00.template-help.com/magento_37649/checkout/cart/configure/id/464/">Edit item</a>
+                                                                <a class="btn-edit" title="Edit item" href="#">Edit item</a>
                                                                 <p class="product-name">
                                                                     <h:link value="${item.productName}" outcome="viewDetail" >
                                                                         <f:param name="id" value="${item.productId}" />
@@ -109,7 +122,7 @@
                                                 </ol>
                                             </h:form>
                                             <div class="actions">
-                                                <button onclick="setLocation('http://livedemo00.template-help.com/magento_37649/checkout/onepage/')" class="button" title="Checkout" type="button"><span><span>Checkout</span></span></button>
+                                                <button  class="button" title="Checkout" type="button"><span><span>Checkout</span></span></button>
                                             </div>
                                             <script type="text/javascript">decorateList('cart-sidebar', 'none-recursive')</script>
                                         </div>
