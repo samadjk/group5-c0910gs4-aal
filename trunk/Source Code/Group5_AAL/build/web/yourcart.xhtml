@@ -8,10 +8,10 @@
     <h:head>
         <title>Your Cart</title>
     </h:head>
-    <h:body>
-         <ui:composition template="./template/group5.xhtml">
-             <ui:define name="leftmain">
-        <title>Shopping Cart</title>
+<h:body>
+   <ui:composition template="./template/group5.xhtml">
+         <ui:define name="leftmain">
+                 <title>Shopping Cart</title>
         <div class="cart">
             <c:choose>
                 <c:when test="#{cartManagedBean.countCart==0}">
@@ -176,9 +176,9 @@
 
                 </c:otherwise>
             </c:choose>
-        </div>
-    </ui:define>
-</ui:composition>
+         </div>
+         </ui:define>
+    </ui:composition>
 </h:body>
 </html>
 

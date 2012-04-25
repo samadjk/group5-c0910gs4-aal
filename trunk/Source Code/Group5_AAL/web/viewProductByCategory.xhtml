@@ -11,9 +11,12 @@
     <h:body>
          <ui:composition template="./template/group5.xhtml">
             <ui:define name="leftmain">
-                 <div class="page-title category-title">
-                    <h1>Products in category</h1>
-                    </div>
+                 <br></br>
+        <div class="page-title category-title">
+            <h1>products in category</h1>
+        </div>
+        <br></br>
+        <ol class="products-list" id="products-list">
             <h:form>
                 <c:forEach items="${productBean.listByCate}" var="item">
                     <li class="item">
@@ -24,13 +27,13 @@
                         </h:link>
                         <div class="product-shop">
                             <div class="f-fix">
-                                <h2 class="product-name">
+                                <h3 class="product-name">
                                     <h:link outcome="viewDetail">
                                         <f:param name="id" value="${item.idPro}" />
                                         <f:param name="idS" value="${item.idHouse}" />
                                         <h:outputText value="${item.name}"/>
                                     </h:link>
-                                </h2>
+                                </h3>
                                 <c:choose>
                                     <c:when test="#{item.saleOff==0}">
                                     </c:when>
@@ -76,7 +79,8 @@
                         </div>
                     </li>
                 </c:forEach>
-            </h:form>
+                </h:form>
+             </ol>
             </ui:define>
         </ui:composition>
     </h:body>
