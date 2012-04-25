@@ -90,11 +90,11 @@
                                     <c:otherwise>
                                         <div class="block-content">
                                             <div class="summary">
-                                                <p class="amount">There are <a href="yourcart.xhtml"><h:outputText value="${cartManagedBean.countCart}"/> items</a> in your cart.</p>
+                                                <p><b><font color="white">There are <a href="yourcart.xhtml"><h:outputText style="color: Yellow;" value="${cartManagedBean.countCart}"/> <b><font color="yellow">items</font></b></a> in your cart.</font></b></p>
                                                 <p class="subtotal">
-                                                    <span class="label">Cart Subtotal:</span> <span class="price">$<h:outputText value="${cartManagedBean.totalPrice}"/></span>                                                </p>
+                                                    <span class="label"><b><font color="white">Cart Subtotal:</font></b></span> <span class="price">$<h:outputText style="color: Yellow;"  value="${cartManagedBean.totalPrice}"/></span>                                                </p>
                                             </div>
-                                            <p class="block-subtitle">Recently added item(s)</p>
+                                            <p class="block-subtitle"><b><font color="white">Recently added item(s)</font></b></p>
                                             <h:form>
                                                 <ol class="mini-products-list" id="cart-sidebar">
                                                     <c:forEach items="${cartManagedBean.listProductCart}" var="item">
@@ -114,7 +114,7 @@
                                                                         <f:param name="id" value="${item.productId}" />
                                                                     </h:link>
                                                                 </p>
-                                                                <strong><h:outputText value="$${item.productQuantity}"/></strong> x
+                                                                <strong><h:outputText style="color: Yellow;" value="$${item.productQuantity}"/></strong> x
                                                                 <span class="price"><h:outputText value="$${item.productPrice}"/></span>
                                                             </div>
                                                         </li>
