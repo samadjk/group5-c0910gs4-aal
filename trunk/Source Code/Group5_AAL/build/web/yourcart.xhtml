@@ -65,11 +65,11 @@
                                                 </h:link>
                                             </td>
                                             <td class="a-center">
-                                                <h2 class="product-name">
+                                                <h4 class="product-name">
                                                     <h:link value="${item.productName}" outcome="viewDetail" >
                                                         <f:param name="id" value="${item.productId}" />
                                                     </h:link>
-                                                </h2>
+                                                </h4>
                                             </td>
                                             <td class="a-center">
                                                 <h:link value="Edit" outcome="viewDetail" >
@@ -105,12 +105,12 @@
                                 <div class="col-1">
                                 </div>
                                 <div class="col-2">
-                                    <form method="post" action="http://livedemo00.template-help.com/magento_37649/checkout/cart/couponPost/" id="discount-coupon-form">
+                                    <form method="post" action="#" id="discount-coupon-form">
                                         <div class="discount">
-                                            <h3>Benefit</h3>
+                                            <h4>Benefit</h4>
                                             <c:choose>
                                                 <c:when test="#{sessionScope['ssAccount']==null}">
-                                                    <h2>You must login to received benefit!</h2>
+                                                    You must login to received benefit!
                                                 </c:when>
                                                 <c:otherwise>
                                                     <div class="discount-form">
