@@ -58,27 +58,12 @@
 		</div>
 		<div class="row-2">
 			<div class="left">
-				<ul>
-					<li>         
-                                             <h:link outcome="index" class="active">
-                                                                               
-                                               <h:outputText value="home"/>
-                                             </h:link>
-                                        </li>
-					<li><a href="about-us.html"><span>about</span></a></li>
-					<li><a href="articles.html"><span>articles</span></a></li>
-					<li><a href="contact-us.html"><span>contact</span></a></li>
-					<li class="last"><a href="sitemap.html"><span>site map</span></a></li>
-				</ul>
+				<ui:include src="header.xhtml" />  
 			</div>
 		</div>
 		<div class="row-3">
 			<div class="inside">
-				<h2>Group 5 C0910GS4 - Fat2<b>eProjects</b></h2>
-				<p>Auto Ancillaries Limited (AAL) is in the business of manufacturing important ancillaries for the two-wheeler and four-wheeler automobile industry. For the past few months they have been facing problems with their current system.</p>
-				<form action="" id="search-form">
-					<fieldset><label>Search:</label><input type="text" /><a href="#" onclick="document.getElementById('search-form').submit()" class="link1"><em><b>Go!</b></em></a></fieldset>
-				</form>
+				<ui:include src="search.xhtml" /> 
 			</div>
 		</div>
 		<div class="extra"><img src="#{request.contextPath}/resources/images/header-img.png" alt="" /></div>
@@ -98,21 +83,7 @@
 </div>    
 <!-- FOOTER -->
 	<div id="footer">
-		<div class="footer-nav">
-			<div class="left">
-				<ul>
-					<li><a href="home.html">Home</a></li>
-					<li><a href="about-us.html">About</a></li>
-					<li><a href="articles.html">Articles</a></li>
-					<li><a href="contacts-us.html">Contacts</a></li>
-					<li class="last"><a href="sitemap.html">Sitemap</a></li>
-				</ul>
-			</div>
-		</div>
-		<div class="bottom">Copyright - Auto Ancillaries Limited<br />
-			<a rel="nofollow" href="#" class="new_window">Website </a> AAL<br />
-			<a href="#" class="new_window">By</a> Group5 - C0910GS4 - Fpt Aptech - Fat 2
-		</div>
+		<ui:include src="footer.xhtml" /> 
 	</div>
 <script type="text/javascript"> Cufon.now(); </script>
 
