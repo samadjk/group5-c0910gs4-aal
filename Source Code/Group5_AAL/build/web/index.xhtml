@@ -7,7 +7,8 @@
       xmlns:f="http://java.sun.com/jsf/core">
 
          <ui:composition template="./template/group5.xhtml">
-            <ui:define name="leftmain">
+             <ui:define name="leftmain">
+                 <h:form id="products-list">
                  <div class="block_bestseller">
                      <h3><font color="BB0000">[Bestsellers]</font></h3>
                                                 <c:forEach items="${productBean.bestSeller}" var="item">
@@ -66,7 +67,9 @@
                                                                             <span class="regular-price" id="product-price-44-new">
                                                                                 <span class="price">$ <h:outputText value="${item.price}"/></span></span>
                                                                         </div>
+                                                                       
                                                                         <div class="actions">
+                                                                            
                                                                             <h:commandButton styleClass="button btn-cart" value="Add to Cart" action="#{cartBean.addToCart}">
                                                                                 <f:setPropertyActionListener target="#{cartBean.productCart}" value="#{item}" />
                                                                             </h:commandButton>
@@ -75,7 +78,9 @@
                                                                                 <f:param name="idS" value="${item.idHouse}" />
                                                                                 <h:outputText value="Details"/>
                                                                             </h:link>
+                                                                            
                                                                         </div>
+                                                                        
                                                                     </li>
                                                                 </c:when>
                                                                 <c:otherwise>
@@ -118,7 +123,9 @@
                                                         </c:forEach>
                                                     </ul>
                                                 </div>
-                                            </div>
+                                           
+                               </div>
+                 </h:form>
             </ui:define>
         </ui:composition>
 </html>
