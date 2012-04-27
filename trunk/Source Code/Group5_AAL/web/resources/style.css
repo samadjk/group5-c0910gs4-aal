@@ -554,7 +554,7 @@ tr.summary-details-excluded { font-style:italic; }
 .header .header_menu li a:hover { color:#F8EF05; text-decoration:none; }
 .header .form-search { float:right; background:url(images/bg_search.gif) no-repeat; padding:3px 0 0 107px; width:195px; height:34px; }
 .header .form-search .input-text { float:left; width:148px; height:32px; padding:0; line-height:32px; font-size:11px; background:none; border:0; color:#2A2B2E; }
-.header .form-search .btn_search { float:right; border:0; background:url(images/btn_search.gif) no-repeat; border:0; width:15px; height:15px; margin:9px 12px 0 0; cursor:pointer; }
+.header .form-search .btn_search { float:right; border:0; background:url(images/btn_search.gif) no-repeat; border:0; width:15px; height:15px; margin:8px 6px 0 0; cursor:pointer; }
 .header .form-search .search-autocomplete { z-index:999; }
 .header .form-search .search-autocomplete ul { border:1px solid #ddd; background-color:#fff; }
 .header .form-search .search-autocomplete li { padding:3px; border-bottom:1px solid #ddd; cursor:pointer; }

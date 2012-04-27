@@ -29,7 +29,12 @@
                                                                 </h:link>
                                                             </h5>
                                                             <div class="best_descr">
-                                                                by warehouse: <a href="viewProductByHouse.xhtml?idH=${item.idHouse}" class="rev_link1"><h:outputText value="${item.house}"/></a>
+                                                                by warehouse: 
+                                                                <h:link outcome="viewProductByHouse">
+                                                                                <f:param name="idH" value="${item.idHouse}" />
+                                                                                <h:outputText value="${item.house}"/>
+                                                                </h:link>
+                                                                
                                                                 <br></br>of factory: <h:outputText value="${item.factory}"/>
                                                             </div>
                                                             <div class="best_price">$ <h:outputText value="${item.price}"/></div>
@@ -59,7 +64,12 @@
                                                                             </h:link>
                                                                         </h3>
                                                                         <div class="best_descr">
-                                                                            by warehouse: <a href="viewProductByHouse.xhtml?idH=${item.idHouse}" class="rev_link1"><h:outputText value="${item.house}"/></a>
+                                                                            by warehouse: 
+                                                                            <h:link outcome="viewProductByHouse">
+                                                                                <f:param name="idH" value="${item.idHouse}" />
+                                                                                <h:outputText value="${item.house}"/>
+                                                                            </h:link>
+                                                                            
                                                                             <br></br>of factory: <h:outputText value="${item.factory}"/>
                                                                         </div>
                                                                         <br></br>
@@ -99,7 +109,12 @@
                                                                             </h:link>
                                                                         </h3>
                                                                         <div class="best_descr">
-                                                                            by warehouse: <a href="viewProductByHouse.xhtml?idH=${item.idHouse}" class="rev_link1"><h:outputText value="${item.house}"/></a>
+                                                                            by warehouse: 
+                                                                            <h:link outcome="viewProductByHouse">
+                                                                                <f:param name="idH" value="${item.idHouse}" />
+                                                                                <h:outputText value="${item.house}"/>
+                                                                            </h:link>
+                                                                            
                                                                             <br></br>of factory: <h:outputText value="${item.factory}"/>
                                                                         </div>
                                                                         <br></br>
