@@ -5,7 +5,12 @@
 
   <h2>Group 5 C0910GS4 - Fat2<b>eProjects</b></h2>
 				<p>Auto Ancillaries Limited (AAL) is in the business of manufacturing important ancillaries for the two-wheeler and four-wheeler automobile industry. For the past few months they have been facing problems with their current system.</p>
-				<form action="" id="search-form">
-					<fieldset><label>Search:</label><input type="text" /><a href="#" onclick="document.getElementById('search-form').submit()" class="link1"><em><b>Go!</b></em></a></fieldset>
-				</form>
+				 <h:form id="search_mini_form">
+                                    <div class="form-search">
+                                        Search :  <h:inputText id="search" styleClass="input-text" value="#{productBean.txtSearch}" required="true" requiredMessage=""/>
+                                          <h:commandButton styleClass="btn_search" value="GO" action="#{productBean.searchProduct}"/>
+                                        <br></br>
+                                        <h:message for="textSearch" style="color:red"/>
+                                    </div>
+                                </h:form>
 </html>    
