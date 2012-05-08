@@ -47,7 +47,12 @@
                                             <a href="myOrder.xhtml" title="My Account" >My Order</a>
                                         </li>
                                     </c:if>
-                                    <li ><a href="yourcart.xhtml" title="My Cart" class="top-link-cart">My Cart</a></li>
+                                    <li >
+                                        <h:link outcome="yourcart" class="top-link-cart">                             
+                                               <h:outputText value="My Cart"/>
+                                             </h:link>
+                                        
+                                       </li>
                                     <c:choose>
                                         <c:when test="#{sessionScope['ssAccount']!=null}">
                                             <li class=" last" >
