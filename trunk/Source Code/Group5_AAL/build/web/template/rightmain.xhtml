@@ -56,6 +56,11 @@
                                     <c:choose>
                                         <c:when test="#{sessionScope['ssAccount']!=null}">
                                             <li class=" last" >
+                                                <h:commandLink action="#{loginBean.logoutHome}">
+                                                    
+                                                    <h:outputText style="font-family: Arial,Helvetica,sans-serif; color: #ffffff" value="Logout" />
+                                                </h:commandLink>
+                                                
                                                 <a href="loginpage.xhtml" title="Log In" >Log out</a>
                                             </li>
                                         </c:when>
