@@ -5,11 +5,33 @@
 <div class="footer-nav">
 			<div class="left">
 				<ul>
-					<li><a href="home.html">Home</a></li>
-					<li><a href="about-us.html">About</a></li>
-					<li><a href="articles.html">Articles</a></li>
-					<li><a href="contacts-us.html">Contacts</a></li>
-					<li class="last"><a href="sitemap.html">Sitemap</a></li>
+					<li>         
+                                             <h:link outcome="index">                             
+                                               <h:outputText value="home"/>
+                                             </h:link>
+                                        </li>
+					<li>
+                                            <a href="faces/Admin/homePage.xhtml"><span>Admin</span></a>
+                                            
+                                        </li>
+					<li>
+                                            <h:link outcome="viewProductListCompare">                             
+                                               <h:outputText value="Compare"/>
+                                             </h:link>
+                                            
+                                        </li>
+					<li>
+                                            <h:link outcome="contact">                             
+                                               <h:outputText value="Contact"/>
+                                             </h:link>
+                                            
+                                        </li>
+					<li class="last">
+                                              <h:link outcome="about">                             
+                                               <h:outputText value="About"/>
+                                             </h:link>
+                                            
+                                        </li>
 				</ul>
 			</div>
 		</div>

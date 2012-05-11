@@ -27,7 +27,7 @@
                             </td>
                             <td bgcolor="#f3f3f3" width="380">
                                 <div align="left">
-                                    <a onclick="MM_openBrWindow('http://e-path.com.au/demo1/info_order.php?mname=The Fruit Box Shop - Demo Site','order_details','scrollbars=no,width=580,height=240')" href="javascript:;"><img style="CURSOR: help" src="incl2/epoq.gif" alt="Order Details" height="22" width="29" border="0" /></a></div>
+                                    <a onclick="MM_openBrWindow('http://e-path.com.au/demo1/info_order.php?mname=The Fruit Box Shop - Demo Site','order_details','scrollbars=no,width=580,height=240')" href="javascript:;"><img style="CURSOR: help" src="#{request.contextPath}/resources/images/incl2/epoq.gif" alt="Order Details" height="22" width="29" border="0" /></a></div>
                             </td>
                         </tr>
                         <tr>
@@ -93,7 +93,7 @@
                             </td>
                             <td bgcolor="#f3f3f3" width="380">
                                 <div align="left">
-                                    <img style="CURSOR: help" src="incl2/epoq.gif" alt="Enter Credit Card Details" height="22" width="29" border="0" /></div>
+                                    <img style="CURSOR: help" src="#{request.contextPath}/resources/images/incl2/epoq.gif" alt="Enter Credit Card Details" height="22" width="29" border="0" /></div>
                             </td>
                         </tr>
                         <tr>
@@ -130,7 +130,7 @@
                                         <option value="Amex">American Express</option>
                                         <option value="Diners Club">Diners Club</option>
                                         <option value="JCN">JCB</option>
-                                    </select><img src="incl2/cc.gif" alt="" align="absbottom" border="0" /></div>
+                                    </select><img src="#{request.contextPath}/resources/images/incl2/cc.gif" alt="" align="absbottom" border="0" /></div>
                             </td>
                         </tr>
                         <tr>
@@ -186,7 +186,7 @@
                             </td>
                             <td bgcolor="#f3f3f3" width="380">
                                 <div align="left">
-                                    <img style="CURSOR: help" src="incl2/epoq.gif" alt="Authorise The Charge" height="22" width="29" border="0" /></div>
+                                    <img style="CURSOR: help" src="#{request.contextPath}/resources/images/incl2/epoq.gif" alt="Authorise The Charge" height="22" width="29" border="0" /></div>
                             </td>
                         </tr>
                         <tr height="22">
@@ -203,7 +203,7 @@
                             <td colspan="2" width="564">
                                 <div align="center">
                                     <h:commandButton action="#{orderBean.makePayment}" styleClass="button" style="margin-left: 120px;" value="Make Payment Now"></h:commandButton>
-                                    <h:commandButton styleClass="button" style="margin-left: 300px; margin-top: -25px;" value="Payment In Warehouse"></h:commandButton>
+                                    <h:commandButton styleClass="button" style="margin-left: 400px; margin-top: -20px;" value="Payment In Warehouse"></h:commandButton>
                                 </div>
                             </td>
                         </tr>
@@ -212,26 +212,26 @@
                 <br />
                 <table border="0" cellspacing="0" cellpadding="0" bgcolor="white">
                     <tr height="8">
-                        <td width="8" height="8"><img src="incl2/gtl.gif" alt="" height="8" width="8" border="0" /></td>
-                        <td width="625" height="8"></td>
-                        <td class="cnrtr" width="8" height="8"><img src="incl2/gtr.gif" alt="" height="8" width="8" border="0" /></td>
+                        <td width="8" height="8"><img src="#{request.contextPath}/resources/images/incl2/gtl.gif" alt="" height="8" width="8" border="0" /></td>
+                        <td width="525" height="8"></td>
+                        <td class="cnrtr" width="8" height="8"><img src="#{request.contextPath}/resources/images/incl2/gtr.gif" alt="" height="8" width="8" border="0" /></td>
                     </tr>
                     <tr>
                         <td width="8"></td>
-                        <td class="t11" width="625">
+                        <td class="t11" width="525">
                             <div align="center">
-                                <a onclick="MM_openBrWindow('http://e-path.com.au/demo1/info_security.php?mname=The Fruit Box Shop - Demo Site','order_details','scrollbars=yes,width=598,height=560')" href="javascript:;"><img style="CURSOR: help" src="incl2/pci.gif" alt="About Security" height="111" width="625" border="0" /></a></div>
+                                <a onclick="MM_openBrWindow('http://e-path.com.au/demo1/info_security.php?mname=The Fruit Box Shop - Demo Site','order_details','scrollbars=yes,width=598,height=560')" href="javascript:;"><img style="CURSOR: help" src="#{request.contextPath}/resources/images/incl2/pci.gif" alt="About Security" height="111" width="525" border="0" /></a></div>
                         </td>
                         <td width="8"></td>
                     </tr>
                     <tr height="8">
-                        <td width="8" height="8"><img src="incl2/gbl.gif" alt="" height="8" width="8" border="0" /></td>
-                        <td width="625" height="8"></td>
-                        <td class="cnrbr" width="8" height="8"><img src="incl2/gbr.gif" alt="" height="8" width="8" border="0" /></td>
+                        <td width="8" height="8"><img src="#{request.contextPath}/resources/images/incl2/gbl.gif" alt="" height="8" width="8" border="0" /></td>
+                        <td width="525" height="8"></td>
+                        <td class="cnrbr" width="8" height="8"><img src="#{request.contextPath}/resources/images/incl2/gbr.gif" alt="" height="8" width="8" border="0" /></td>
                     </tr>
                     <tr bgcolor="#dadada" height="8">
                         <td width="8" height="8"></td>
-                        <td class="9j" width="625" height="8">
+                        <td class="9j" width="525" height="8">
                             <div align="right">
                                 <i><span class="9j">.... actual screen capture of one of of e-Path's PCI confirmation graphics from PCI DSS ASV auditing control panel</span></i></div>
                         </td>
@@ -239,18 +239,7 @@
                     </tr>
                 </table>
             </div>
-            <script type="text/javascript">
-            //&lt;![CDATA[
-                var accordion = new Accordion('checkoutSteps', '.step-title', true);
-                    accordion.openSection('opc-login');
-                    var checkout = new Checkout(accordion,{
-                    progress: 'http://livedemo00.template-help.com/magento_37649/checkout/onepage/progress/',
-                    review: 'http://livedemo00.template-help.com/magento_37649/checkout/onepage/review/',
-                    saveMethod: 'http://livedemo00.template-help.com/magento_37649/checkout/onepage/saveMethod/',
-                    failure: 'http://livedemo00.template-help.com/magento_37649/checkout/cart/'}
-                );
-            //]]&gt;
-            </script>
+         
         </div>
     </ui:define>
 </ui:composition>
