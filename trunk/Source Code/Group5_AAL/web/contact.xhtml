@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core">
+   <ui:composition template="./template/group5.xhtml">
+         <ui:define name="leftmain">
+                <div id="content"><div class="ic"></div>
+		<div class="box">
+			<div class="border-bot">
+				<div class="right-bot-corner">
+					<div class="left-bot-corner">
+						<div class="inner">
+							<div class="box1 alt">
+								<div class="inner">
+									<h4><b>Our</b> Contacts</h4>
+									<div class="address"><b>Zip Code:</b>20000<br />
+										<b>Country:</b>VIETNAM<br />
+										<b>Telephone:</b>0933323899<br />
+										<b>Fax:</b>+933323899</div>
+									<p class="p0 extra-wrap"><b>Miscellaneous info:</b><br />
+										Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="indent">
+			<div class="wrapper">
+				<div class="col-1">
+					<h3><b>Contact</b> Form</h3>
+					<form id="contacts-form" action="">
+						<fieldset>
+						<div class="field">
+							<label>Your Name:</label>
+							<input type="text" value=""/>
+						</div>
+						<div class="field">
+							<label>Your E-mail:</label>
+							<input type="text" value=""/>
+						</div>
+						<div class="field">
+							<label>Your Website:</label>
+							<input type="text" value=""/>
+						</div>
+						<div class="field">
+							<label>Your Message:</label>
+							<textarea cols="1" rows="1"></textarea>
+						</div>
+						<div class="wrapper"><a href="#" onclick="document.getElementById('contacts-form').submit()" class="link1"><em><b>SUBMIT</b></em></a></div>
+						</fieldset>
+					</form>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+         </ui:define>
+    </ui:composition>
+</html>
+
