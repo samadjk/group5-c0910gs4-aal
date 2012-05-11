@@ -10,18 +10,20 @@ import entity.Admin;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import entity.Customer;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Pe Yeu
+ * @author Sky
  */
 @ManagedBean
 @SessionScoped
 public class LoginBean {
 
     /** Creates a new instance of LoginBean */
+    public static final String SESSION_NAME_LOGIN ="ssAccount";
     Customer c;
     Admin admin;
     CustomerBiz cBiz = new CustomerBiz();
@@ -94,9 +96,16 @@ public class LoginBean {
         }
         return "loginPage.xhtml?faces-redirect=true";
     }
-   public String logoutHome() {
-        HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
-        session.removeAttribute("ssAccount");
-        return "loginpage.xhtml?faces-redirect=true";
+  public String logout(){
+        System.out.println("RUN... LOGOUT ");
+        HttpSession ses = ( HttpSession )FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+        if(ses != null){
+                ses.setAttribute(SESSION_NAME_LOGIN,"0");
+        }
+        ses.invalidate();
+        return "loginPage.xhtml?faces-redirect=true";
     }
+	
+
+   
 }
