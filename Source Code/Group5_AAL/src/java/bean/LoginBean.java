@@ -11,6 +11,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import entity.Customer;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -93,5 +94,9 @@ public class LoginBean {
         }
         return "loginPage.xhtml?faces-redirect=true";
     }
-   
+   public String logoutHome() {
+        HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+        session.removeAttribute("ssAccount");
+        return "loginpage.xhtml?faces-redirect=true";
+    }
 }
