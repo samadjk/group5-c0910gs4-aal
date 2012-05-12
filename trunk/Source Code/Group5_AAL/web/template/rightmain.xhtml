@@ -56,7 +56,7 @@
                                     <c:choose>
                                         <c:when test="#{sessionScope['ssAccount']!=null}">
                                             <li class=" last" >
-                                                   <h:commandButton value="Logout" action="#{loginBean.logout}"></h:commandButton>
+                                                   <h:commandButton value="Logout" action="#{loginBean.logoutCustomer}"></h:commandButton>
                                             </li>
                                         </c:when>
                                         <c:otherwise>
