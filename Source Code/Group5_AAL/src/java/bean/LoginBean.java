@@ -96,13 +96,8 @@ public class LoginBean {
         }
         return "loginPage.xhtml?faces-redirect=true";
     }
-  public String logout(){
-        System.out.println("RUN... LOGOUT ");
-        HttpSession ses = ( HttpSession )FacesContext.getCurrentInstance().getExternalContext().getSession(true);
-        if(ses != null){
-                ses.setAttribute(SESSION_NAME_LOGIN,"0");
-        }
-        ses.invalidate();
+  public String logoutCustomer(){
+        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("ssAccount", null);
         return "loginPage.xhtml?faces-redirect=true";
     }
 	
