@@ -8,7 +8,9 @@
 
          <ui:composition template="./template/group5.xhtml">
              <ui:define name="leftmain">
+                 
                  <h:form id="products-list">
+                 <div id="stylized" class="myform">
                  <div class="block_bestseller">
                      <h3><font color="BB0000">[Bestsellers]</font></h3>
                                                 <c:forEach items="${productBean.bestSeller}" var="item">
@@ -42,6 +44,7 @@
                                                     </div>
                                                 </c:forEach>
                                             </div>
+                 </div>
                                             <div><div class="new_products">
                                                     <h3><font color="BB0000">[Hot Products]</font></h3>
                                                     <ul class="products-grid-new">

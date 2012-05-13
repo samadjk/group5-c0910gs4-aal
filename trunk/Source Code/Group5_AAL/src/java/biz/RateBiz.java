@@ -21,7 +21,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author KuBk
+ * @author HieuDQ_B00385
  */
 public class RateBiz {
 

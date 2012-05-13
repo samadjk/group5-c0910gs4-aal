@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets">
     <h:head>
@@ -54,8 +55,18 @@
                 <div class="logo"><a href="#"><img src="images/logo.png" alt="" title="" border="0" /></a></div>
 
                 <div class="right_header">
-                    Welcome #{loginBean.admin.userName}, <a href="#" class="messages">(0) Messages</a> | <a href="loginPage.xhtml" class="logout">Logout</a>
-                    <br /><br />
+                    Welcome #{loginBean.admin.userName}, <a href="#" class="messages">(0) Messages</a> | 
+                    <h:form>
+                    <c:choose>
+                                        <c:when test="#{sessionScope['ssAccountAdmin']!=null}">
+                                          
+                                                <h:commandLink action="#{loginBean.logoutAdmin}" style="color: red; font-size: 1em;">
+                                                <h:outputText style="color: #ffffff" value="Logout" />
+                                                </h:commandLink>
+                                         </c:when>
+                    </c:choose>
+                    </h:form>
+                    <br />
                     Welcome to <h:outputText value="#{loginBean.warehouseName}" /> Warehouse Of #{loginBean.factoryName} Factory !
                 </div>
                 <div id="clock_a"></div>

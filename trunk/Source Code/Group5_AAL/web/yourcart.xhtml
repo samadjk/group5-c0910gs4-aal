@@ -16,7 +16,11 @@
                     </div>
                     <div class="cart-empty">
                         <p>You have no items in your shopping cart.</p>
-                        <p>Click <a href="viewproduct.xhtml">here</a> to continue shopping.</p>
+                        <p>Comeback to Home Page</p>
+                        <p>Or</p>
+                        <p>Click <h:link outcome="viewproduct">                             
+                                               <h:outputText value="Here"/>
+                                             </h:link> to continue shopping.</p>
                     </div>
                 </c:when>
                 <c:otherwise>
@@ -48,7 +52,7 @@
                                 <tfoot>
                                     <tr class="first last">
                                         <td class="a-right last" colspan="50">
-                                            <button onclick="setLocation('viewproduct.xhtml')" class="button btn-continue left" title="Continue Shopping" type="button"><span><span>Continue Shopping</span></span></button>
+                                            <h:commandButton action="#{orderBean.continueCart}" styleClass="button btn-continue left" title="Continue Shopping" value="Continue Shopping"></h:commandButton>
                                             <button class="button btn-update" style="margin-right: 210px;" title="Update Shopping Cart" type="submit"><span><span>Update Shopping Cart</span></span></button>
 
                                             <h:commandButton action="#{orderBean.checkOutCart}" styleClass="button btn-proceed-checkout btn-checkout" style="float: right;" value="Proceed to Checkout" title="Proceed to Checkout"></h:commandButton>

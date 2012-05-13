@@ -6,7 +6,7 @@ package entity;
 
 /**
  *
- * @author Pe Yeu
+ * @author HieuDQ_B00385
  */
 public class Customer {
 

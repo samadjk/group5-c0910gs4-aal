@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Admin
+ * @author HieuDQ_B00385
  */
 public class ProductBiz {
 

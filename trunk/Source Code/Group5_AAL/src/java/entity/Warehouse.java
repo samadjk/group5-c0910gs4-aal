@@ -6,7 +6,7 @@ package entity;
 
 /**
  *
- * @author Admin
+ * @author HieuDQ_B00385
  */
 public class Warehouse {
 

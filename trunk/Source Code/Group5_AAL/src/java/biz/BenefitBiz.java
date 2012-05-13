@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Pe Yeu
+ * @author HieuDQ_B00385
  */
 public class BenefitBiz {
 

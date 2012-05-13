@@ -19,7 +19,7 @@ import javax.faces.event.ValueChangeEvent;
 
 /**
  *
- * @author KuBk
+ * @author HieuDQ_B00385
  */
 @ManagedBean
 @RequestScoped

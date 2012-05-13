@@ -17,7 +17,7 @@ import javax.faces.context.FacesContext;
 
 /**
  *
- * @author KuBk
+ * @author Sky
  */
 @ManagedBean
 @RequestScoped
@@ -146,6 +146,9 @@ public class OrderBean {
 
     public String checkOutCart2() {
         return "loginpage.xhtml?faces-redirect=true";
+    }
+    public String continueCart() {
+        return "viewproduct.xhtml?faces-redirect=true";
     }
 
     public String makePayment() {
