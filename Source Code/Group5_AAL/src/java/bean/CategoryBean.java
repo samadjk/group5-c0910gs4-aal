@@ -13,7 +13,7 @@ import javax.faces.bean.RequestScoped;
 
 /**
  *
- * @author Admin
+ * @author HieuDQ_B00385
  */
 @ManagedBean
 @RequestScoped

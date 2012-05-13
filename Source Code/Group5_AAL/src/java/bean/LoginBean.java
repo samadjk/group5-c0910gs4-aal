@@ -7,6 +7,8 @@ package bean;
 import biz.AdminBiz;
 import biz.CustomerBiz;
 import entity.Admin;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import entity.Customer;
@@ -23,7 +25,6 @@ import javax.servlet.http.HttpSession;
 public class LoginBean {
 
     /** Creates a new instance of LoginBean */
-    public static final String SESSION_NAME_LOGIN ="ssAccount";
     Customer c;
     Admin admin;
     CustomerBiz cBiz = new CustomerBiz();
@@ -96,11 +97,15 @@ public class LoginBean {
         }
         return "loginPage.xhtml?faces-redirect=true";
     }
-  public String logoutCustomer(){
-        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("ssAccount", null);
-        return "loginPage.xhtml?faces-redirect=true";
+    public String logoutHome() {
+        HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+        session.removeAttribute("ssAccount");
+        return "loginpage.xhtml?faces-redirect=true";
     }
-	
-
-   
+    public String logoutAdmin() {
+        HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+        session.removeAttribute("ssAccountAdmin");
+        return "loginPage.xhtml?faces-redirect=true";
+    } 
+ 
 }

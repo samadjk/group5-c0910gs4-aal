@@ -8,7 +8,7 @@ import java.sql.Date;
 
 /**
  *
- * @author Pe Yeu
+ * @author HieuDQ_B00385
  */
 public class ProductReport {
 

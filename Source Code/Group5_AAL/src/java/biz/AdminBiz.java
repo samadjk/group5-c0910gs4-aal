@@ -16,7 +16,7 @@ import java.util.List;
 
 /**
  *
- * @author KuBk
+ * @author HieuDQ_B00385
  */
 public class AdminBiz {
 
