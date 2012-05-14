@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>REgister</title>
+        <script type="text/javascript" >               
+            function validForm(form){
+                 var age=form.elements["formR:age"].value;
+                  if(!age.match("\\d")){
+                       alert("Age must is integer!");
+                       return false;
+                   }                                
+                  var email=form.elements["formR:email"].value;
+                   if(!email.match("^([a-zA-Z0-9_\\-\\.]+)@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,3})$")){
+                       alert("Email Invalid!");
+                       return false;
+                   }
+                   
+                   var phone=form.elements["formR:phone"].value;
+                   if(!phone.match("\\d")){
+                       alert("Phone must is integer!");
+                       return false;
+                   }
+                   return true;
+            }
+        </script>
+    </h:head>
+    <h:body>
+        <center>
+            <h:form id="formR">
+                Username:<h:inputText id="username" value="#{customerBean.username}" required="true" requiredMessage="Not Null"></h:inputText><br></br>
+                Password:<h:inputSecret id="pass" value="#{customerBean.pass}" required="true" requiredMessage="Not Null"></h:inputSecret><br></br>
+                Confirm Pass:<h:inputSecret id="confirm" value="#{customerBean.confirmPass}" required="true" requiredMessage="Not Null"></h:inputSecret><br></br>
+                Fullname:<h:inputText id="fullname" value="#{customerBean.fullname}" required="true" requiredMessage="Not Null"></h:inputText><br></br>
+                Age:<h:inputText id="age"  value="#{customerBean.age}" required="true" requiredMessage="Not Null"></h:inputText><h:outputText value=" (must be integer)"></h:outputText><br></br>
+                Email:<h:inputText id="email" value="#{customerBean.email}" required="true" requiredMessage="Not Null" ></h:inputText><br></br>
+                Address:<h:inputText id="address" value="#{customerBean.address}" required="true" requiredMessage="Not Null"></h:inputText><br></br>
+                Phone:<h:inputText id="phone" value="#{customerBean.phone}" required="true" requiredMessage="Not Null"></h:inputText><h:outputText value=" (must be integer)"></h:outputText><br></br>
+                <h:commandButton value="Register" action="#{customerBean.register}" onclick="return validForm(this.form);" ></h:commandButton>
+            </h:form>
+        </center>
+    </h:body>
+</html>
+

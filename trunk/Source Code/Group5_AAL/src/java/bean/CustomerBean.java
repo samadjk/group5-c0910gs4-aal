@@ -53,14 +53,14 @@ public class CustomerBean {
                     int ageInt = Integer.parseInt(age);
                     int phoneInt = Integer.parseInt(phone);
                     if (cBiz.register(username, pass, fullname, ageInt, email, address, phoneInt)) {
-                        return "index.xhtml";
+                        return "registerdone.xhtml";
                     }
                 }
             } catch (Exception e) {
-                return "faild.xhtml";
+                return "registerfaild.xhtml";
             }
         }
-        return "faild.xhtml";
+        return "registerfaild.xhtml";
     }
 
     public String deleteCustomer(String username) {
