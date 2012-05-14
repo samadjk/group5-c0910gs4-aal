@@ -1,9 +1,0 @@
-<menu>
-	<entry  url="index.html" label="home page"/>
-	<entry  url="about-us.html" label="about-us"/>
-	<entry  url="services.html" label="services"/>
-	<entry  url="projects.html" label="projects"/>
-	<entry  url="support.html" label="support"/>
-	<entry  url="contact-us.html" label="contact us"/>
-	<entry  url="" label="FAQ"/>
-</menu>

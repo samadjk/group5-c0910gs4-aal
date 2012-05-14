@@ -1,15 +1,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
       xmlns:c="http://java.sun.com/jsp/jstl/core"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.prime.com.tr/ui">
+
 <div class="col-2">
     <div class="box2">
 					<div class="border-top">
 							<div class="left-top-corner">
 								<div class="right-top-corner">
 									<div class="inner">
-										<h4>Category</h4>
-                                                                                <ul><div align="center"><img src="#{request.contextPath}/resources/images/banner_sky_category13.gif"></img></div>
+										<h4></h4>
+                                                                                <ul><div align="center"><img src="#{request.contextPath}/resources/images/button/sky_menu_list.png"></img></div>
                                                                                 </ul>
 										<ul class="news">
 					
@@ -97,7 +99,7 @@
                                      <c:choose>
                                     <c:when test="#{sessionScope['cartProduct']==null}">
                                         <div class="block-content">
-                                            <p class="empty">You have <strong>no items</strong> in your shopping cart.</p>
+                                            <p class="empty"><font color="yellow">You have <strong><font color="white">no items</font></strong> in your shopping cart.</font></p>
                                         </div>
                                     </c:when>
                                     <c:otherwise>
@@ -134,16 +136,36 @@
                                                     </c:forEach>
                                                 </ol>
                                             </h:form>
-                                            <div class="actions">
-                                                <button  class="button" title="Checkout" type="button"><span><span>Checkout</span></span></button>
-                                            </div>
+                                             <h:form>
+                                        <c:choose>
+                                        <c:when test="#{sessionScope['ssAccount']!=null}">
+                                            
+                                            <h:commandLink action="#{orderBean.checkOutCart}" style="color: red; font-size: 1em;">
+                                            <h:outputText style="font-family: Arial,Helvetica,sans-serif; color: #ffffff" value="Check Out" />
+                                            </h:commandLink>
+                                             </c:when>
+                                         </c:choose>
+                                         </h:form>
                                             <script type="text/javascript">decorateList('cart-sidebar', 'none-recursive')</script>
                                         </div>
                                     </c:otherwise>
                                 </c:choose>
 								</div>
 							</div>
-						</div>
+	</div>
     </div>
+     <div class="box5">
+						<div class="right-bot-corner">
+							<div class="left-bot-corner">
+								<div class="inner">
+									<h4><b>Calendar</b></h4>
+			
+                                                         <div id="datepicker"></div>     
+
+    </div>
+                                                        </div>
 </div>
+</div>
+</div>
+
 </html>    
