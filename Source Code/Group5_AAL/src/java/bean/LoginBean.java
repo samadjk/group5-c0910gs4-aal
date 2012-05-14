@@ -84,10 +84,10 @@ public class LoginBean {
                 String parameterIdProduct = FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("ssRateProduct").toString();
                 return "viewDetail.xhtml?id=" + parameterIdProduct + "&faces-redirect=true";
             } else {
-                return "viewproduct.xhtml?faces-redirect=true";
+                return "logindone.xhtml?faces-redirect=true";
             }
         }
-        return "loginpage.xhtml?faces-redirect=true";
+        return "loginfail.xhtml?faces-redirect=true";
     }
 
     public String loginAdmin() {

@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core">
+   <ui:composition template="./template/group5.xhtml">
+         <ui:define name="leftmain">
+        <div>
+            <div class="page-title title-buttons">
+                <h1>Compare Products</h1>
+                <a href="#" onclick="window.print(); return false;" class="link-print">Print This Page</a>
+            </div>
+            <h:form>
+                <table class="data-table-compare compare-table" id="product_comparison">
+                    <colgroup>
+                        <col width="1%" />
+                        <c:forEach items="${compareProductBean.listShowProductCompare}" var="item0">
+                            <col width="${compareProductBean.percentWidth}%" />
+                        </c:forEach>
+                    </colgroup>
+                    <thead>
+                        <tr class="first last">
+                            <th>&nbsp;</th>
+                            <c:forEach items="${compareProductBean.listShowProductCompare}" var="item">
+                                <td class="a-right"><a href="#" class="btn-remove" onclick="removeItem('http://livedemo00.template-help.com/magento_37649/catalog/product_compare/remove/product/1/uenc/aHR0cDovL2xpdmVkZW1vMDAudGVtcGxhdGUtaGVscC5jb20vbWFnZW50b18zNzY0OS9jYXRhbG9nL3Byb2R1Y3RfY29tcGFyZS9pbmRleC8,/');" title="Remove This Item">Remove This Item</a></td>
+
+                            </c:forEach>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="product-shop-row first odd">
+                            <th>&nbsp;</th>
+                            <c:forEach items="${compareProductBean.listShowProductCompare}" var="item1">
+                                <td>
+                                    <h:link outcome="viewDetail" styleClass="product-image">
+                                        <f:param name="id" value="${item1.idPro}" />
+                                        <h:graphicImage name="../Image/${item1.image}" width="125px" height="125px" />
+                                    </h:link><br /><br />
+                                    <h:link outcome="viewDetail" value="${item1.name}" styleClass="product-image">
+                                        <f:param name="id" value="${item1.idPro}" />
+                                    </h:link>
+                                    <div class="ratings">
+                                        <div class="rating-box">
+                                            <div class="rating" style="width:80%"></div>
+                                        </div>
+                                        <span class="amount"><a href="#" onclick="var t = opener ? opener.window : window; t.location.href='http://livedemo00.template-help.com/magento_37649/review/product/list/id/1/'; return false;">(1)</a></span>
+                                    </div>
+                                    <div class="price-box">
+                                        <span class="regular-price" id="product-price-1-compare-list-top">
+                                            <span class="price"><h:outputText value="$ ${item1.price}"/></span></span>
+                                    </div>
+                                    <p>
+                                        <h:commandButton styleClass="button btn-cart" value="Add to Cart" action="#{cartBean.addToCart}">
+                                            <f:setPropertyActionListener target="#{cartBean.productCart}" value="#{item1}" />
+                                        </h:commandButton>
+                                    </p>
+
+                                </td>
+                            </c:forEach>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr class="even">
+                            <th><span class="nobr">Description</span></th>
+                            <c:forEach items="${compareProductBean.listShowProductCompare}" var="item2">
+                                <td>
+                                    <h:outputText value="${item2.des}"/>
+                                </td>
+                            </c:forEach>
+                        </tr>
+                        <tr class="even">
+                            <th><span class="nobr">SKU</span></th>
+                            <c:forEach items="${compareProductBean.listShowProductCompare}" var="item2">
+                                <td>
+                                    <h:outputText value="${item2.house}"/>
+                                </td>
+                            </c:forEach>
+                        </tr>
+                    </tbody>
+                </table>
+            </h:form>
+            <div class="buttons-set">
+                <button type="button" title="Close Window" class="button" onclick="window.close();"><span><span>Close Window</span></span></button>
+                <span class="please-wait" id="compare-list-please-wait" style="display:none;">
+                    <img src="http://livedemo00.template-help.com/magento_37649/skin/frontend/default/theme082k/images/opc-ajax-loader.gif" alt="Please wait..." title="Please wait..." class="v-middle" /> Please wait...        </span>
+            </div>
+            <div id="map-popup" class="map-popup" style="display:none;">
+                <a href="#" class="map-popup-close" id="map-popup-close">x</a>
+                <div class="map-popup-arrow"></div>
+                <div class="map-popup-heading"><h2 id="map-popup-heading"></h2></div>
+                <div class="map-popup-content" id="map-popup-content">
+                    <div class="map-popup-checkout">
+                        <form action="" method="POST" id="product_addtocart_form_from_popup">
+                            <input name="product" class="product_id" value="" id="map-popup-product-id" type="hidden" />
+                            <button type="button" title="Add to Cart" class="button btn-cart" id="map-popup-button"><span><span>Add to Cart</span></span></button>
+                        </form>
+                    </div>
+                    <div class="map-popup-msrp" id="map-popup-msrp-box"><strong>Price:</strong> <span style="text-decoration:line-through;" id="map-popup-msrp"></span></div>
+                    <div class="map-popup-price" id="map-popup-price-box"><strong>Actual Price:</strong> <span id="map-popup-price"></span></div>
+                    <script type="text/javascript">
+                    //<![CDATA[
+                        document.observe("dom:loaded", Catalog.Map.bindProductForm);
+                    //]]>
+                    </script>
+                </div>
+                <div class="map-popup-text" id="map-popup-text">Our price is lower than the manufacturer's "minimum advertised price."  As a result, we cannot show you the price in catalog or the product page. You have no obligation to purchase the product once you know the price. You can simply remove the item from your cart.</div>
+                <div class="map-popup-text" id="map-popup-text-what-this">Our price is lower than the manufacturer's "minimum advertised price."  As a result, we cannot show you the price in catalog or the product page.You have no obligation to purchase the product once you know the price. You can simply remove the item from your cart.</div>
+            </div>
+        </div>
+ 
+       </ui:define>
+    </ui:composition>
+</html>

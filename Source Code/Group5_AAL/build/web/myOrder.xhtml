@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+         <ui:composition template="./template/group5.xhtml">
+    <ui:define name="leftmain">
+        <br></br>
+        <div class="page-title category-title">
+            <h1>My Order</h1>
+        </div>
+        <h:form>
+            <table id="tableOrder">
+                <thead>
+                    <tr class="first last">
+                        <th rowspan="1" class="a-center">&nbsp;</th>
+                        <th rowspan="1" class="a-center">Date Of Purchase</th>
+                        <th colspan="1" class="a-center"><span class="nobr">Qty</span></th>
+                        <th class="a-center" rowspan="1">Total Price</th>
+                        <th colspan="1" class="a-center">Status</th>
+                        <th class="a-center" rowspan="1"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach items="${orderBean.listOrderByUser}" var="item">
+                        <tr>
+                            <td class="a-center">
+                                <span class="price"> <h:outputText value="${item.orderId}"/></span>
+                            </td>
+                            <td class="a-center">
+                                <span style="color: blue; font-weight:bolder;">
+                                    <h:outputText value="${item.orderDate}"/>
+                                </span>
+                            </td>
+                            <td class="a-center">
+                                <span style="color: black; font-weight: bold;">
+                                    <h:outputText value="${item.totalProduct}"/>
+                                </span>
+                            </td>
+                            <td class="a-center">
+                                <span style="color: darkred; font-weight: bolder;">
+                                    $ <h:outputText value="${item.totalPrice}"/>
+                                </span>
+                            </td>
+                            <td class="a-center">
+                                <span style="color:darkorchid; font-weight: bolder;">
+                                    <h:outputText value="${item.status}"/>
+                                </span>
+                            </td>
+                            <td>
+                                <div class="arrow"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="a-center" colspan="7">
+                                <div style="margin-left: 130px;"><h4 style="color: black;">Additional information</h4>
+                                    <center><hr width="100px" /></center></div>
+                                <c:forEach items="${item.listOrderDetail}" var="item2">
+                                    <h:link outcome="viewDetail" styleClass="product-image">
+                                        <f:param name="id" value="${item2.productId}" />
+                                        <h:graphicImage name="../Image/${item2.productImage}" width="80px" height="80px" />
+                                    </h:link>
+                                    <c:choose>
+                                        <c:when test="${item2.status=='DELIVERED'}">
+                                            <img alt="di"  src="../Image/di.png" style="float: right;" width="80px" height="80px" />
+                                        </c:when>
+                                        <c:when test="${item2.status=='CHECKING'}">
+                                            <img alt="di"  src="../Image/checking.png" style="float: right;" width="80px" height="80px" />
+                                        </c:when>
+                                        <c:when test="${item2.status=='WAITING'}">
+                                            <img alt="di"  src="../Image/waiting.png" style="float: right;" width="80px" height="80px" />
+                                        </c:when>
+                                        <c:otherwise>
+                                            <img alt="soldout"  src="../Image/soldout.png" style="float: right;" width="80px" height="80px" />
+                                        </c:otherwise>
+                                    </c:choose>
+                                    <div style="margin-left: 210px;">
+                                        <ul>
+                                            <li>
+                                                Product Name:  <h:outputText value="${item2.productName}"/>
+                                            </li>
+                                            <li>
+                                                Price: <h:outputText value="$ ${item2.productPrice}"/>
+                                            </li>
+                                            <li>
+                                                Request Quantity :  <h:outputText value="${item2.quantity}"/>
+                                            </li>
+                                            <li>
+                                                Accept Quantity : <b> <h:outputText value="${item2.quantityAccept}"/> </b>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <br />
+                                </c:forEach>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
+            </table>
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>

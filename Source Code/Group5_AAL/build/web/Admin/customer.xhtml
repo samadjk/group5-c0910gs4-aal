@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition
+    xmlns="http://www.w3.org/1999/xhtml"
+    template="Template/templatePage.xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <ui:define name="contentAdmin">
+        <div class="right_content">
+            <h:form styleClass="niceform">
+                <h:inputText id="name" value="#{customerBean.usernameS}" size="20" required="true" requiredMessage="Not null!"/>
+                <h:commandButton styleClass="form-submit" value="Search" action="#{customerBean.searchCustomer}"/>
+                <h:message for="name" style="color:red"/>
+            </h:form>
+            <br></br><h2>View customers </h2>
+            <h:form>
+                <table id="rounded-corner" summary="2007 Major IT Companies' Profit" >
+                    <thead>
+                        <tr>
+                            <th scope="col" class="rounded">Username</th>
+                            <th scope="col" class="rounded">Full name</th>
+                            <th scope="col" class="rounded">Address</th>
+                            <th scope="col" class="rounded">Age</th>
+                            <th scope="col" class="rounded">Email</th>
+                            <th scope="col" class="rounded">Phone</th>
+                            <th scope="col" class="rounded">View Order</th>
+                            <th scope="col" class="rounded-q4">Delete</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <td colspan="6" class="rounded-foot-left"></td>
+                            <td class="rounded-foot-right">&nbsp;</td>
+                            <td class="rounded-foot-right">&nbsp;</td>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <c:forEach items="${customerBean.listCAdmin}" var="list">
+                            <tr>
+                                <td><h:outputText value="${list.username}"/></td>
+                                <td><h:outputText value="${list.fullname}"/></td>
+                                <td><h:outputText value="${list.address}"/></td>
+                                <td><h:outputText value="${list.age}"/></td>
+                                <td><h:outputText value="${list.email}"/></td>
+                                <td><h:outputText value="${list.phone}"/></td>
+                                <td><a href="viewOrderCustomer.xhtml?username=${list.username}"><img src="images/user_edit.png" alt="" title="" border="0" /></a></td>
+                                <td><h:commandButton action="#{customerBean.deleteCustomer(list.username)}" style="background-image: url(images/trash.png )" onclick="return confirm('Are you sure you want to delete?')"></h:commandButton></td>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                </table>
+            </h:form>
+            <br></br>
+            <a href="customer.xhtml" class="bt_blue"><span class="bt_blue_lft"></span><strong>View all customers</strong><span class="bt_blue_r"></span></a>
+            <div class="pagination">
+                <span class="disabled">prev</span><span class="current">1</span><a href="">2</a>
+                ... <a href="">99</a><a href="">100</a><a href="">next</a>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

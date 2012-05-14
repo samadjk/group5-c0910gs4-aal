@@ -1,0 +1,246 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+         <ui:composition template="./template/group5.xhtml">
+    <ui:define name="leftmain">
+        <title>Checkout</title>
+        <c:if test="#{sessionScope['ssAccount']==null}">
+
+        </c:if>
+        <div class="col-main">
+            <div class="page-title">
+                <center><h1>Checkout</h1></center>
+            </div>
+            <div align="center">
+                <h:form onsubmit="return checkData()" id="Payment">
+                    <input type="hidden" name="eml" value='accounts@netportsaustralia.com' /><input type="hidden" name="dte" value='27-4-2012 5:58 pm ' border="0" /><input type="hidden" name="id" value="demo1" border="0" />
+                    <table style="color: black;" class="t12" border="0" cellspacing="5" cellpadding="0">
+                        <tr>
+                            <td class="t14b" width="180">
+                                <div align="right">
+                                    <b>1. Order Details: </b></div>
+                            </td>
+                            <td bgcolor="#f3f3f3" width="380">
+                                <div align="left">
+                                    <a onclick="MM_openBrWindow('http://e-path.com.au/demo1/info_order.php?mname=The Fruit Box Shop - Demo Site','order_details','scrollbars=no,width=580,height=240')" href="javascript:;"><img style="CURSOR: help" src="#{request.contextPath}/resources/images/incl2/epoq.gif" alt="Order Details" height="22" width="29" border="0" /></a></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="180">
+                                <div align="right">
+                                    Payment To:</div>
+                            </td>
+                            <td width="380">
+                                <div align="left">
+                                    </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="180">
+                                <div align="right">
+                                    Your level: 
+                                </div>
+                            </td>
+                            <td width="380">
+                                <div align="left">
+                                    <b><strong></strong></b><h:outputText value="${orderBean.levelOfCustomer}"/></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="180">
+                                <div align="right">
+                                    Discount percent:
+                                </div> 
+                            </td>
+                            <td width="380">
+                                <div align="left">
+                                    <b><strong></strong></b><h:outputText value="${orderBean.percentDiscount} %"/></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="180">
+                                <div align="right">Total Price:</div>
+                            </td>
+                            <c:choose>
+                                <c:when test="#{orderBean.percentDiscount!=0}">
+                                    <td width="380">
+                                        <div align="left">
+                                            <strong><span class="price"> $ <h:outputText value="${cartManagedBean.totalPrice-(cartManagedBean.totalPrice*orderBean.percentDiscount/100)}"/> (- <h:outputText value="${orderBean.percentDiscount} %"/>)</span></strong>
+                                        </div>
+                                    </td>
+                                </c:when>
+                                <c:otherwise>
+                                    <td width="380">
+                                        <div align="left">
+                                            <strong><span class="price"> $ <h:outputText value="${cartManagedBean.totalPrice}"/></span></strong>
+                                        </div>
+                                    </td>
+                                </c:otherwise>
+                            </c:choose>
+                        </tr>
+                    </table>
+                    <br />
+                    <table class="t12" border="0" cellspacing="5" cellpadding="0">
+                        <tr>
+                            <td class="t14b" width="180">
+                                <div align="right">
+                                    <b>2. Enter Credit Card </b></div>
+                            </td>
+                            <td bgcolor="#f3f3f3" width="380">
+                                <div align="left">
+                                    <img style="CURSOR: help" src="#{request.contextPath}/resources/images/incl2/epoq.gif" alt="Enter Credit Card Details" height="22" width="29" border="0" /></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="180">
+                                <div align="right">
+                                    Credit Card Number:</div>
+                            </td>
+                            <td width="380">
+                                <div align="left">
+                                    <input type="text" name="CardNumber" size="26" maxlength="22" /></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="180">
+                                <div align="right">
+                                    Name On Card:</div>
+                            </td>
+                            <td width="380">
+                                <div align="left">
+                                    <input name="Name" size="36" maxlength="60" onfocus="select()" /></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="180">
+                                <div align="right">
+                                    Card Type:</div>
+                            </td>
+                            <td width="380">
+                                <div align="left">
+                                    <select name="CardType" size="1">
+                                        <option>Select Card . . .</option>
+                                        <option value="Visa">Visa</option>
+                                        <option value="MasterCard">Master Card</option>
+                                        <option value="Amex">American Express</option>
+                                        <option value="Diners Club">Diners Club</option>
+                                        <option value="JCN">JCB</option>
+                                    </select><img src="#{request.contextPath}/resources/images/incl2/cc.gif" alt="" align="absbottom" border="0" /></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="180">
+                                <div align="right">
+                                    Credit Card Expiry Date:</div>
+                            </td>
+                            <td width="380">
+                                <div align="left">
+                                    <select name="ExpiryMonth" size="1">
+                                        <option>Mth.</option>
+                                        <option value="01"> 01</option>
+                                        <option value="02"> 02</option>
+                                        <option value="03"> 03</option>
+                                        <option value="04"> 04</option>
+                                        <option value="05"> 05</option>
+                                        <option value="06"> 06</option>
+                                        <option value="07"> 07</option>
+                                        <option value="08"> 08</option>
+                                        <option value="09"> 09</option>
+                                        <option value="10"> 10</option>
+                                        <option value="11"> 11</option>
+                                        <option value="12"> 12</option>
+                                    </select> / <select name="ExpiryYear" size="1">
+                                        <option>Year</option>
+                                        <option value="09">&nbsp;09</option>
+                                        <option value="10">&nbsp;10</option>
+                                        <option value="11">&nbsp;11</option>
+                                        <option value="12">&nbsp;12</option>
+                                        <option value="13">&nbsp;13</option>
+                                        <option value="14">&nbsp;14</option>
+                                        <option value="15">&nbsp;15</option>
+                                        <option value="16">&nbsp;16</option>
+                                        <option value="17">&nbsp;17</option>
+                                        <option value="18">&nbsp;18</option>
+                                        <option value="19">&nbsp;19</option>
+                                        <option value="20">&nbsp;20</option>
+                                        <option value="21">&nbsp;21</option>
+                                        <option value="22">&nbsp;22</option>
+                                        <option value="23">&nbsp;23</option>
+                                        <option value="24">&nbsp;24</option>
+                                        <option value="25">&nbsp;25</option>
+                                    </select></div>
+                            </td>
+                        </tr>
+                    </table>
+                    <br />
+                    <table class="t12" border="0" cellspacing="5" cellpadding="0">
+                        <tr>
+                            <td class="t14b" width="180">
+                                <div align="right">
+                                    <b>3. Authorise Charge </b></div>
+                            </td>
+                            <td bgcolor="#f3f3f3" width="380">
+                                <div align="left">
+                                    <img style="CURSOR: help" src="#{request.contextPath}/resources/images/incl2/epoq.gif" alt="Authorise The Charge" height="22" width="29" border="0" /></div>
+                            </td>
+                        </tr>
+                        <tr height="22">
+                            <td colspan="2" width="564" height="22">
+                                <div align="center">
+                                    <font color="red">Do you authorise this charge on this credit card?</font>&nbsp; <input type="checkbox" name="Authorise" value="Yes" /><strong><font color="red">YES</font></strong></div>
+                            </td>
+                        </tr>
+                        <tr height="12">
+                            <td width="180" height="12"><input type="hidden" name="ceml" value="" /><input type="hidden" name="opt" value="" /><input type="hidden" name="ret" value="" /></td>
+                            <td width="380" height="12"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" width="564">
+                                <div align="center">
+                                    <h:commandButton action="#{orderBean.makePayment}" styleClass="button" style="margin-left: 120px;" value="Make Payment Now"></h:commandButton>
+                                    <!-- <h:commandButton styleClass="button" style="margin-left: 400px; margin-top: -20px;" value="Payment In Warehouse"></h:commandButton> -->
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </h:form>
+                <br />
+                <table border="0" cellspacing="0" cellpadding="0" bgcolor="white">
+                    <tr height="8">
+                        <td width="8" height="8"><img src="#{request.contextPath}/resources/images/incl2/gtl.gif" alt="" height="8" width="8" border="0" /></td>
+                        <td width="525" height="8"></td>
+                        <td class="cnrtr" width="8" height="8"><img src="#{request.contextPath}/resources/images/incl2/gtr.gif" alt="" height="8" width="8" border="0" /></td>
+                    </tr>
+                    <tr>
+                        <td width="8"></td>
+                        <td class="t11" width="525">
+                            <div align="center">
+                                <a onclick="MM_openBrWindow('http://e-path.com.au/demo1/info_security.php?mname=The Fruit Box Shop - Demo Site','order_details','scrollbars=yes,width=598,height=560')" href="javascript:;"><img style="CURSOR: help" src="#{request.contextPath}/resources/images/incl2/pci.gif" alt="About Security" height="111" width="525" border="0" /></a></div>
+                        </td>
+                        <td width="8"></td>
+                    </tr>
+                    <tr height="8">
+                        <td width="8" height="8"><img src="#{request.contextPath}/resources/images/incl2/gbl.gif" alt="" height="8" width="8" border="0" /></td>
+                        <td width="525" height="8"></td>
+                        <td class="cnrbr" width="8" height="8"><img src="#{request.contextPath}/resources/images/incl2/gbr.gif" alt="" height="8" width="8" border="0" /></td>
+                    </tr>
+                    <tr bgcolor="#dadada" height="8">
+                        <td width="8" height="8"></td>
+                        <td class="9j" width="525" height="8">
+                            <div align="right">
+                                <i><span class="9j">.... actual screen capture of one of of e-Path's PCI confirmation graphics from PCI DSS ASV auditing control panel</span></i></div>
+                        </td>
+                        <td class="cnrbr" width="8" height="8"></td>
+                    </tr>
+                </table>
+            </div>
+         
+        </div>
+    </ui:define>
+</ui:composition>
+</html>

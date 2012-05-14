@@ -1,0 +1,127 @@
+/*
+  E-PATH PTY LTD
+*/
+
+p { margin-top: 0px; margin-bottom: 0px; }
+
+
+.9j { FONT-SIZE: 9px; COLOR: #555555; FONT-FAMILY: Verdana, Tahoma, Arial, Tahoma, Helvetica, sans-serif; TEXT-ALIGN: justify; }
+a.9j:link {  color: #555555; text-decoration: none }
+a.9j:visited { color: #555555; text-decoration: none }
+a.9j:hover { color: #008DFF; text-decoration: underline }
+
+.t10j { FONT-SIZE: 10px; COLOR: #40454B; FONT-FAMILY: Verdana, Tahoma, Arial, Tahoma, Helvetica, sans-serif; TEXT-ALIGN: justify; }
+a.t10j:link {  color: #40454B; text-decoration: none }
+a.t10j:visited { color: #40454B; text-decoration: none }
+a.t10j:hover { color: #008DFF; text-decoration: underline }
+
+.t11 { FONT-SIZE: 11px; COLOR: #40454B; FONT-FAMILY: Verdana, Tahoma, Arial, Tahoma, Helvetica, sans-serif; }
+a.t11:link {  color: #40454B; text-decoration: none }
+a.t11:visited { color: #40454B; text-decoration: none }
+a.t11:hover { color: #008DFF; text-decoration: underline }
+
+.t11j { FONT-SIZE: 11px; COLOR: #40454B; FONT-FAMILY: Verdana, Tahoma, Arial, Tahoma, Helvetica, sans-serif; TEXT-ALIGN: justify; }
+a.t11j:link {  color: #40454B; text-decoration: none }
+a.t11j:visited { color: #40454B; text-decoration: none }
+a.t11j:hover { color: #008DFF; text-decoration: underline }
+
+.t12 { FONT-SIZE: 12px; COLOR: #40454B; FONT-FAMILY: Verdana, Tahoma, Arial, Tahoma, Helvetica, sans-serif; }
+a.t12:link {  color: #40454B; text-decoration: none }
+a.t12:visited { color: #40454B; text-decoration: none }
+a.t12:hover { color: #008DFF; text-decoration: underline }
+
+.t17 { FONT-SIZE: 17px; COLOR: #40454B; FONT-FAMILY: Arial, Verdana, Tahoma, Tahoma, Helvetica, sans-serif; font-weight: bold; }
+a.t17:link {  color: #40454B; text-decoration: none }
+a.t17:visited { color: #40454B; text-decoration: none }
+a.t17:hover { color: #008DFF; text-decoration: underline }
+
+.t20 { FONT-SIZE: 20px; COLOR: #40454B; FONT-FAMILY: Arial, Verdana, Tahoma, Tahoma, Helvetica, sans-serif; font-weight: bold; }
+a.t20:link {  color: #40454B; text-decoration: none }
+a.t20:visited { color: #40454B; text-decoration: none }
+a.t20:hover { color: #008DFF; text-decoration: underline }
+
+.t11b { FONT-SIZE: 11px; color: #0243A5; font-weight: bold; FONT-FAMILY: Verdana, Arial, Tahoma, Helvetica, sans-serif }
+a.t11b:link {  color: #0243A5; text-decoration: none }
+a.t11b:visited { color: #0243A5; text-decoration: none }
+a.t11b:hover { color: #FFA500; text-decoration: underline }
+
+.t12b { FONT-SIZE: 12px; color: #0243A5; font-weight: bold; FONT-FAMILY: Verdana, Arial, Tahoma, Helvetica, sans-serif }
+a.t12b:link {  color: #0243A5; text-decoration: none }
+a.t12b:visited { color: #0243A5; text-decoration: none }
+a.t12b:hover { color: #FFA500; text-decoration: underline }
+
+.t14b { FONT-SIZE: 16px; color: #0243A5; font-weight: bold; FONT-FAMILY: Arial, Tahoma, Verdana, Helvetica, sans-serif; letter-spacing: -1px; }
+a.t14b:link {  color: #0243A5; text-decoration: none }
+a.t14b:visited { color: #0243A5; text-decoration: none }
+a.t14b:hover { color: #FFA500; text-decoration: underline }
+
+.copy { font-family: Verdana, Arial, Tahoma, Helvetica, sans-serif; font-size: 10px; color: #666666; }
+a.copy:link { color: #666666; text-decoration: none }
+a.copy:visited { color: #666666; text-decoration: none }
+a.copy:hover { color: #008DFF; text-decoration: underline }
+
+.dash {background-color : #ffffff; background-image : url(../incl/dash.gif); background-repeat : repeat-x; }
+
+select, option, input, textarea { FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; color:#333333; FONT-SIZE: 12px; background-color:#FFFFFF; BORDER-RIGHT: 1px solid #808080; BORDER-TOP: 1px solid #808080; BORDER-LEFT: 1px solid #808080; BORDER-BOTTOM: 1px solid #808080 }	
+
+.button { FONT-FAMILY: Arial, Verdana, Helvetica, sans-serif; color:#ffffff; FONT-SIZE: 14px; font-weight: bold; background-color:#FF9400; BORDER-RIGHT: 1px solid #FFA900; BORDER-TOP: 1px solid #FFA900; BORDER-LEFT: 1px solid #FFA900; BORDER-BOTTOM: 1px solid #FFA900 }	
+
+a:link {  color: #2A5CAC; text-decoration: none }
+a:visited { color: #2A5CAC; text-decoration: none }
+a:hover { color: #FF9C00; text-decoration: underline }
+
+.bline {
+	BORDER-RIGHT: #DFDFDF 0px dashed;
+	BORDER-TOP: #DFDFDF 0px dashed;
+	BORDER-LEFT: #DFDFDF 0px dashed;
+	BORDER-BOTTOM: #DFDFDF 2px dashed;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.boxgreen {
+	BORDER-RIGHT: #DFDFDF 2px dashed;
+	BORDER-TOP: #DFDFDF 2px dashed;
+	BORDER-LEFT: #DFDFDF 2px dashed;
+	BORDER-BOTTOM: #DFDFDF 2px dashed;
+	font: 11px Verdana, Geneva, Helvetica, Arial, sans-serif;  
+	color: #FF0000;
+        font-weight: normal;
+	padding-top: 4px;
+	padding-bottom: 6px;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.boxgrey {
+	BORDER-RIGHT: #DFDFDF 2px dashed;
+	BORDER-TOP: #DFDFDF 2px dashed;
+	BORDER-LEFT: #DFDFDF 2px dashed;
+	BORDER-BOTTOM: #DFDFDF 2px dashed;
+	font: 11px Verdana, Geneva, Helvetica, Arial, sans-serif;  
+	color: #555555;
+      font-weight: normal;
+	padding-top: 4px;
+	padding-bottom: 6px;
+	padding-left: 6px;
+	padding-right: 0px;
+}
+
+.boxsand {
+	BORDER-RIGHT: #EDDDBD 2px dashed;
+	BORDER-TOP: #EDDDBD 2px dashed;
+	BORDER-LEFT: #EDDDBD 2px dashed;
+	BORDER-BOTTOM: #EDDDBD 2px dashed;
+	font: 11px Verdana, Geneva, Helvetica, Arial, sans-serif;  
+	color: #EE0000;
+	background-color: #FFFDF5;
+	padding-top: 4px;
+	padding-bottom: 6px;
+	padding-left: 6px;
+	padding-right: 6px;
+}
+
+form { margin:0px; }
+

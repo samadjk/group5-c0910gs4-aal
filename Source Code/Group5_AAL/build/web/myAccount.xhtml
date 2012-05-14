@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+         <ui:composition template="./template/group5.xhtml">
+    <ui:define name="leftmain">
+        <br></br>
+        <div class="page-title category-title">
+            <h1>My Account</h1>
+        </div>
+        <h:form>
+            <table class="">
+                <tr>
+                    <td width="180">
+                        <div align="right">
+                            Your level:
+                        </div>
+                    </td>
+                    <td width="380">
+                        <div align="left">
+                            <b><strong></strong></b><h:outputText value="${orderBean.levelOfCustomer}"/></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="180">
+                        <div align="right">
+                            Discount percent:
+                        </div>
+                    </td>
+                    <td width="380">
+                        <div align="left">
+                            <b><strong></strong></b><h:outputText value="${orderBean.percentDiscount} %"/></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="180">
+                        <div align="right">
+
+                        </div>
+                    </td>
+                    <td width="380">
+                        <div align="left">
+                            <b><strong></strong></b>&nbsp;</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="180">
+                        <div align="right">
+                            Your Total Price:
+                        </div>
+                    </td>
+                    <td width="380">
+                        <div align="left">
+                           $ <b><strong><h:outputText value="${benefitBean.subPriceOfCustomer}"/></strong></b></div>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <h4> Benefit Level </h4>
+            <br />
+            <table class="data-table cart-table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="rounded" width="30%">Level</th>
+                        <th scope="col" class="rounded" width="30%">MinCost</th>
+                        <th scope="col" class="rounded" width="30%">MaxCost</th>
+                        <th scope="col" class="rounded" width="50px">Discount (%)</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <td colspan="6" class="rounded-foot-left"></td>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <c:forEach items="${benefitBean.listB}" var="item">
+                        <c:choose>
+                            <c:when test="${item.id==orderBean.levelOfCustomer}">
+                                <tr bgcolor="#E0E0E0" style="color: black; font-weight: bolder;">
+                                    <td><h:outputText value="${item.id} -- ( Your Level )"/></td>
+                                    <td><h:outputText value="${item.minCost}"/></td>
+                                    <td><h:outputText value="${item.maxCost}"/></td>
+                                    <td><h:outputText value="${item.perCent}"/><h:outputText value="%"></h:outputText></td>
+                                </tr>
+                            </c:when>
+                            <c:otherwise>
+                                <tr>
+                                    <td><h:outputText value="${item.id}"/></td>
+                                    <td><h:outputText value="${item.minCost}"/></td>
+                                    <td><h:outputText value="${item.maxCost}"/></td>
+                                    <td><h:outputText value="${item.perCent}"/><h:outputText value="%"></h:outputText></td>
+                                </tr>
+                            </c:otherwise>
+                        </c:choose>
+
+                    </c:forEach>
+                </tbody>
+            </table>
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>

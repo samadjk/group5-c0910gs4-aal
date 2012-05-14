@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition
+    xmlns="http://www.w3.org/1999/xhtml"
+    template="Template/templatePage.xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:f="http://java.sun.com/jsf/core">
+    <ui:define name="contentAdmin">
+        <div class="right_content">
+            <h:form styleClass="niceform">
+                <h:inputText id="name" value="#{productBean.txtSearch}" size="20" required="true" requiredMessage="Not null!"/>
+                <h:commandButton styleClass="form-submit" value="Search" action="#{productBean.searchProduct}"/>
+                <h:message for="name" style="color:red"/>
+            </h:form>
+            <br></br><h2>Result search</h2>
+            <h:form>
+                <table id="rounded-corner" summary="2007 Major IT Companies' Profit">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="rounded">Product</th>
+                            <th scope="col" class="rounded">Name</th>
+                            <th scope="col" class="rounded">Price</th>
+                            <th scope="col" class="rounded">Category</th>
+                            <th scope="col" class="rounded">Warehouse</th>
+                            <th scope="col" class="rounded">Factory</th>
+                            <th scope="col" class="rounded">Edit</th>
+                            <th scope="col" class="rounded-q4">Delete</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <td colspan="6" class="rounded-foot-left"></td>
+                            <td class="rounded-foot-right">&nbsp;</td>
+                            <td class="rounded-foot-right">&nbsp;</td>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <c:forEach items="${productBean.listSearch}" var="item">
+                            <tr>
+                                <td><img src="../Image/${item.image}" alt="" title="" width="60" height="60" /></td>
+                                <td><h:outputText value="${item.name}"/></td>
+                                <td>$ <h:outputText value="${item.price}"/></td>
+                                <td><a href="productCategory.xhtml?idC=${item.idCate}">
+                                        <h:outputText value="${item.category}"/>
+                                    </a></td>
+                                <td><a href="productWarehouse.xhtml?idH=${item.idHouse}">
+                                        <h:outputText value="${item.house}"/>
+                                    </a></td>
+                                <td><h:outputText value="${item.factory}"/></td>
+                                <td><a href="productEdit.xhtml?idP=${item.idPro}"><img src="images/user_edit.png" alt="" title="" border="0" /></a></td>
+                                <td><h:commandButton action="#{houseBean.delProduct(item.idPro)}" style="background-image: url(images/trash.png)" onclick="return confirm('Are you delete this item?')"></h:commandButton></td>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                </table>
+            </h:form>
+            <a href="productAdd.xhtml" class="bt_green"><span class="bt_green_lft"></span><strong>Add new item</strong><span class="bt_green_r"></span></a>
+            <a href="productPage.xhtml" class="bt_blue"><span class="bt_blue_lft"></span><strong>View all items from category</strong><span class="bt_blue_r"></span></a>
+            <div class="pagination">
+                <span class="disabled">prev</span><span class="current">1</span><a href="">2</a>
+                ... <a href="">99</a><a href="">100</a><a href="">next</a>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>
+
