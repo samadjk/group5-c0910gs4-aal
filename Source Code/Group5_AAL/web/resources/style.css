@@ -61,7 +61,7 @@ ul,ol {list-style:none}
 .news li a {color:#FFFF33;font-size:.95em;text-decoration:none;font-weight:bold}
 .news li a:hover {text-decoration:underline}
 .news li p {color:#fff;margin:4px 0 0 0}
-.news2 li {background:url(images/sky_menu.png) no-repeat left 5px;padding:0 0 14px 18px}
+.news2 li {background:url(images/sky_menu3.png) no-repeat left 15px;padding:22px 25px 22px 28px}
 .news2 li a {color:#ffffff;font-size:.92em;text-decoration:none;font-weight:bold}
 .news2 li a:hover {text-decoration:underline}
 .news2 li p {color:#fff;margin:4px 0 0 0}
@@ -118,6 +118,12 @@ h3 b,h4 b {color:#1f7dd2}
 .box4 .inner {padding:7px 49px 36px 48px}
 .box4 h4 {color:#fff;margin-bottom:36px}
 .box4 h4 b {color:#c1f0ff}
+.box5 {width:100%;border-top:2px solid #3593da;background:url(images/border-top1.gif) repeat-x left top #176ac7}
+.box5 .right-bot-corner {background:url(images/right-bot-corner1.gif) no-repeat right bottom}
+.box5 .left-bot-corner {background:url(images/left-bot-corner1.gif) no-repeat left bottom}
+.box5 .inner {padding:7px 49px 36px 48px}
+.box5 h4 {color:#fff;margin-bottom:36px}
+.box5 h4 b {color:#c1f0ff}
 /* HEADER */
 #header {height:419px;position:relative}
 #header .row-1 {height:88px}
@@ -771,8 +777,8 @@ tr.summary-details-excluded { font-style:italic; }
 .category-products {}
 
 /* View Type: Grid */
-.products-grid { position:relative; background:url(images/grid.gif) repeat-y; border-bottom:solid 2px #ffffff; }
-.products-grid.last { border-bottom:0; }
+.products-grid { position:relative; background:url(images/grid.gif) repeat-y; border-bottom:dotted 2px #ffffff; }
+.products-grid.last { border-bottom:dotted 2px #ffffff; }
 .products-grid li.item { float:left; width:100px; }
 .products-grid.first li.item { padding-top:0 !important; }
 .products-grid li.last { margin:0; }
@@ -793,11 +799,11 @@ tr.summary-details-excluded { font-style:italic; }
 .products-grid-new { position:relative; }
 .products-grid-new li.item { float:left; width:100px; border-right:dotted 1px #000000; padding:0 18px 21px 0; margin:0 17px 0 0; }
 .products-grid-new li.last { border-right:0 !important; padding:0 0 21px 0 !important; margin:0 !important; }
-.products-grid-new .product-image { display:block; width:100px; height:100px; margin:0 0 7px; }
+.products-grid-new .product-image { display:block; width:100px; height:100px; margin:0px 0px 7px; }
 .products-grid-new .product-name { margin:0 0 13px; font-weight:bold; font-size:8px; font-style:italic; line-height:12px; }
 .products-grid-new .product-name a { color:#000000; text-decoration:none; }
 .products-grid-new .product-name a:hover { text-decoration:underline; }
-.products-grid-new .desc { font-size:10px; line-height:15px; color:#000000; margin:0 5px 11px 0; }
+.products-grid-new .desc { font-size:10px; line-height:15px; color:#000000; margin:0 5px 5px 0; }
 .products-grid-new .price-box { margin:0 0 16px; }
 .products-grid-new .price { font-size:17px; font-weight:700; font-style:italic; color:#C7171A; }
 .products-grid-new .availability { line-height:21px; }
@@ -806,9 +812,9 @@ tr.summary-details-excluded { font-style:italic; }
 .products-grid-new .btn_details:hover { background:#FDBF02; }
 
 /* View Type: List */
-.products-list li.item { border-bottom:1px solid #E5E5E5; padding:0 0 28px 0; margin:0 0 27px 0; }
+.products-list li.item { border-bottom:1px dotted #000000; padding:0 0 28px 0; margin:0 0 27px 0; }
 .products-list li.item.last { border-bottom:0; margin:0; }
-.products-list .product-image { float:left; width:100px; height:100px; }
+.products-list .product-image { float:left; width:100px; height:100px; margin:0 -35px 0px;}
 .products-list .product-shop { margin-left:100px; }
 .products-list .product-name { margin:0 0 13px; width:100px; font-weight:bold; font-size:12px; font-style:italic; line-height:17px; }
 .products-list .product-name a { color:#000000; text-decoration:none; }
@@ -1623,7 +1629,7 @@ padding:14px;
 }
 /* ----------- stylized ----------- */
 #stylized{
-border:solid 2px #000000;
+border:dotted 1px #000000;
 background:##E8E8E8;
 }
 #stylized h1 {
@@ -1673,3 +1679,84 @@ color:#FFFFFF;
 font-size:11px;
 font-weight:bold;
 }
+
+
+
+/*!
+ * jQuery UI Datepicker 1.8.20
+ *
+ * Copyright 2012, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Datepicker#theming
+ */
+.ui-datepicker { width: 17em; padding: .2em .2em 0; display: none; }
+.ui-datepicker .ui-datepicker-header { position:relative; padding:.2em 0; }
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next { position:absolute; top: 2px; width: 1.5em; height: 1.5em; }
+.ui-datepicker .ui-datepicker-prev-hover, .ui-datepicker .ui-datepicker-next-hover { top: 1px; }
+.ui-datepicker .ui-datepicker-prev { left:1px; }
+.ui-datepicker .ui-datepicker-next { right:1px; }
+.ui-datepicker .ui-datepicker-prev-hover { left:1px; }
+.ui-datepicker .ui-datepicker-next-hover { right:1px; }
+.ui-datepicker .ui-datepicker-prev span, .ui-datepicker .ui-datepicker-next span { display: block; position: absolute; left: 50%; margin-left: -8px; top: 50%; margin-top: -8px;  }
+.ui-datepicker .ui-datepicker-title { margin: 0 2.3em; line-height: 1.8em; text-align: center; }
+.ui-datepicker .ui-datepicker-title select { font-size:1em; margin:1px 0; }
+.ui-datepicker select.ui-datepicker-month-year {width: 100%;}
+.ui-datepicker select.ui-datepicker-month, 
+.ui-datepicker select.ui-datepicker-year { width: 49%;}
+.ui-datepicker table {width: 100%; font-size: .9em; border-collapse: collapse; margin:0 0 .4em; }
+.ui-datepicker th { padding: .7em .3em; text-align: center; font-weight: bold; border: 0;  }
+.ui-datepicker td { border: 0; padding: 1px; }
+.ui-datepicker td span, .ui-datepicker td a { display: block; padding: .2em; text-align: right; text-decoration: none; }
+.ui-datepicker .ui-datepicker-buttonpane { background-image: none; margin: .7em 0 0 0; padding:0 .2em; border-left: 0; border-right: 0; border-bottom: 0; }
+.ui-datepicker .ui-datepicker-buttonpane button { float: right; margin: .5em .2em .4em; cursor: pointer; padding: .2em .6em .3em .6em; width:auto; overflow:visible; }
+.ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current { float:left; }
+
+/* with multiple calendars */
+.ui-datepicker.ui-datepicker-multi { width:auto; }
+.ui-datepicker-multi .ui-datepicker-group { float:left; }
+.ui-datepicker-multi .ui-datepicker-group table { width:95%; margin:0 auto .4em; }
+.ui-datepicker-multi-2 .ui-datepicker-group { width:50%; }
+.ui-datepicker-multi-3 .ui-datepicker-group { width:33.3%; }
+.ui-datepicker-multi-4 .ui-datepicker-group { width:25%; }
+.ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header { border-left-width:0; }
+.ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header { border-left-width:0; }
+.ui-datepicker-multi .ui-datepicker-buttonpane { clear:left; }
+.ui-datepicker-row-break { clear:both; width:100%; font-size:0em; }
+
+/* RTL support */
+.ui-datepicker-rtl { direction: rtl; }
+.ui-datepicker-rtl .ui-datepicker-prev { right: 2px; left: auto; }
+.ui-datepicker-rtl .ui-datepicker-next { left: 2px; right: auto; }
+.ui-datepicker-rtl .ui-datepicker-prev:hover { right: 1px; left: auto; }
+.ui-datepicker-rtl .ui-datepicker-next:hover { left: 1px; right: auto; }
+.ui-datepicker-rtl .ui-datepicker-buttonpane { clear:right; }
+.ui-datepicker-rtl .ui-datepicker-buttonpane button { float: left; }
+.ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current { float:right; }
+.ui-datepicker-rtl .ui-datepicker-group { float:right; }
+.ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header { border-right-width:0; border-left-width:1px; }
+.ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header { border-right-width:0; border-left-width:1px; }
+
+/* IE6 IFRAME FIX (taken from datepicker 1.5.3 */
+.ui-datepicker-cover {
+    display: none; /*sorry for IE5*/
+    display/**/: block; /*sorry for IE5*/
+    position: absolute; /*must have*/
+    z-index: -1; /*must have*/
+    filter: mask(); /*must have*/
+    top: -4px; /*must have*/
+    left: -4px; /*must have*/
+    width: 200px; /*must have*/
+    height: 200px; /*must have*/
+}/*!
+ * jQuery UI Progressbar 1.8.20
+ *
+ * Copyright 2012, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Progressbar#theming
+ */
+.ui-progressbar { height:2em; text-align: left; overflow: hidden; }
+.ui-progressbar .ui-progressbar-value {margin: -1px; height:100%; }
