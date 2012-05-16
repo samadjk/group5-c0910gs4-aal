@@ -168,7 +168,7 @@
                                 <c:when test="${index==3}">
                                     <li class="item last">
                                         <h:link outcome="viewDetail">
-                                            <h:graphicImage name="../Image/${item.image}" width="110" height="110" alt="${item.name}" />
+                                            <h:graphicImage name="../Image/${item.image}" width="100" height="100" alt="${item.name}" />
                                             <f:param name="id" value="${item.idPro}" />
                                             <f:param name="idS" value="${item.idHouse}" />
                                         </h:link>
@@ -189,7 +189,7 @@
                                 <c:otherwise>
                                     <li class="item first">
                                         <h:link outcome="viewDetail">
-                                            <h:graphicImage name="../Image/${item.image}" width="120" height="120" alt="${item.name}" />
+                                            <h:graphicImage name="../Image/${item.image}" width="100" height="100" alt="${item.name}" />
                                             <f:param name="id" value="${item.idPro}" />
                                             <f:param name="idS" value="${item.idHouse}" />
                                         </h:link>
